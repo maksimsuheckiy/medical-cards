@@ -11,5 +11,7 @@ initBootstrap({
   toasts: true,
 });
 
-// Your app code
-console.log(`Hello ${process.env.HELLO}`);
+// App imports
+
+import API from "./utils/API.js";
+
