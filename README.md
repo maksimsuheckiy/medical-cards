@@ -33,26 +33,10 @@ and newer.
 1. Clone the repository into a new folder for your new project.
 
    ```bash
-   git clone git@github.com:noreading/bootstrap5-webpack-boilerplate.git my-project
-   ```
-2. Remove the .git directory to add your own CVS later.
-
-   ```bash
-   rm -rf .git
+   git clone git@github.com:maksimsuheckiy/medical-cards.git or https://github.com/maksimsuheckiy/medical-cards.git
    ```
 
-3. Update the `package.json`.
-
-   ```JSON
-      {
-        "name": "my-project",
-        "description": "A description of my new project",
-        "author": "Your Name",
-        "license": "MIT"
-      }
-   ```
-
-4. Enable / Disable bootstrap features in `main.js`.
+2. Enable / Disable bootstrap features in `main.js`.
 
    ```javascript
    initBootstrap({
@@ -62,13 +46,13 @@ and newer.
    });
    ```
 
-5. Install needed dependencies
+3. Install needed dependencies
 
    ```bash
    npm install
    ```
 
-6. Run webpack
+4. Run webpack
 
    The `dev` command will start a dev server and watch for code changes in JS and SCSS files. Hot reloading is enabled, so
    that any change will be visible in your browser as you type.
