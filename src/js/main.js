@@ -13,5 +13,6 @@ initBootstrap({
 
 // App components
 import API from "./utils/API.js";
-import Input from "./Input.js";
+import Input from "./components/Input.js";
+import Select from "./components/Select.js";
 
