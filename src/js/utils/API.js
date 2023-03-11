@@ -16,6 +16,10 @@ export default class API {
         }
     }
 
+    getHeader() {
+
+    }
+
     async GET(headers, param) {
         const res = await fetch(`${this.url}/${param ? param : ''}`, {
             method: 'GET',
