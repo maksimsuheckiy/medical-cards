@@ -7,10 +7,12 @@ export default class API {
         API.token = token;
     };
 
-    getHeaders() {
-        return {
+    getHeaders(auth) {
+        return auth ? {
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${API.token || localStorage.token}`
+        } : {
+            'Content-Type': 'application/json',
         }
     }
 
