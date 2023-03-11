@@ -12,5 +12,6 @@ initBootstrap({
 });
 
 // App components
-import API from "./API.js";
+import API from "./utils/API.js";
+import Input from "./Input.js";
 
