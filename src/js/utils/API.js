@@ -7,12 +7,12 @@ export default class API {
         API.token = token;
     };
 
-    getHeaders(auth) {
-        return auth ? {
+    getHeaders(isAuth) {
+        return isAuth ? {
             'Content-Type': 'application/json',
-            'Authorization': `Bearer ${API.token || localStorage.token}`
         } : {
             'Content-Type': 'application/json',
+            'Authorization': `Bearer ${API.token || localStorage.token}`
         }
     }
 
@@ -54,3 +54,4 @@ export default class API {
         return response.json()
     }
 }
+
