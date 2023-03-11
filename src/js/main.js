@@ -11,7 +11,6 @@ initBootstrap({
   toasts: true,
 });
 
-// App imports
-
-import API from "./utils/API.js";
+// App components
+import API from "./API.js";
 
