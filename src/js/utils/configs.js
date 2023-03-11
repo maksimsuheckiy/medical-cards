@@ -1,5 +1,5 @@
 export const emailConfig = {
-    classes: ['email', 'email--primary'],
+    classes: ['form-control'],
     attributes: [
         {
             title: 'id',
