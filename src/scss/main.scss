@@ -31,8 +31,11 @@ body {
 //---------------------------------------------
 
 @import "components/header";
-@import "components/modal.scss";
+@import "components/modal";
+@import "components/errors";
 
 //---------------------------------------------
-// 4.Containers
+// 4.containers
 //---------------------------------------------
+
+@import "containers/home";

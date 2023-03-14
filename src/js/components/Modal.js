@@ -1,5 +1,6 @@
 import Component from "./Component.js";
 import {modalClasses} from "../utils/configs.js";
+import {loginForm} from "./Login.js";
 
 export default class Modal extends Component {
     constructor(classes, title, actionTitle, children) {
@@ -14,7 +15,7 @@ export default class Modal extends Component {
             modalBody: document.createElement('div'),
             modalFooter: document.createElement('div'),
             btnClose: document.createElement('button'),
-            btnSave: document.createElement('button'),
+            btnSubmit: document.createElement('button'),
         }
 
         super(elements, classes);
@@ -24,6 +25,8 @@ export default class Modal extends Component {
     }
 
     closeModal() {
+        const {errorBox} = this.children.elements;
+        errorBox.remove();
         this.elements.self.remove();
     }
 
@@ -38,33 +41,37 @@ export default class Modal extends Component {
             modalBody,
             modalFooter,
             btnClose,
-            btnSave
+            btnSubmit
         } = this.elements;
 
         modalTitle.innerText = this.title;
         btnClose.type = 'button';
         btnClose.innerText = "Close";
-        btnSave.type = 'button';
-        btnSave.innerText = this.actionTitle;
+        btnSubmit.type = 'button';
+        btnSubmit.innerText = this.actionTitle;
 
         const closeControls = [btnClose, crossBtn];
-        closeControls.forEach(control => control.addEventListener('click', () => this.closeModal()))
+        closeControls.forEach(control => control.addEventListener('click', () => this.closeModal()));
+        btnSubmit.addEventListener('click', async () => {
+            const response = await this.children.handleLogin();
+            if (response) this.closeModal();
+        });
 
         self.append(modalDialog);
         modalDialog.append(modalContent, modalBody);
         modalContent.append(modalHeader, modalBody, modalFooter);
         modalHeader.append(modalTitle, crossBtn);
-        modalFooter.append(btnClose, btnSave);
+        modalFooter.append(btnClose, btnSubmit);
 
         if (!modalBody.hasChildNodes()) {
-            modalBody.append(this.children);
+            modalBody.append(this.children.render());
         }
 
         super.render()
     }
 }
 
-const authModal = new Modal(modalClasses, 'Authorization', 'Login', 'Children');
+const authModal = new Modal(modalClasses, 'Authorization', 'Login', loginForm);
 const createVisit = new Modal(modalClasses, 'Create visit', 'Create', 'Children');
 
 export {

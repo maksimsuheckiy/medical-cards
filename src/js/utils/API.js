@@ -26,13 +26,11 @@ export default class API {
     }
 
     async POST(headers, param, data) {
-        const response = await fetch(`${this.url}/${param ? param : ''}`, {
+        return await fetch(`${this.url}/${param ? param : ''}`, {
             method: 'POST',
             headers: headers,
             body: JSON.stringify(data)
         })
-
-        return response.json()
     }
 
     async PUT(headers, param, data) {

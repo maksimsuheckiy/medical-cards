@@ -12,6 +12,6 @@ export default class Component {
             element.className = this.classes[prop];
         }
 
-        parent.prepend(self);
+        return parent ? parent.prepend(self) : self
     }
 }

@@ -1,0 +1,8 @@
+.invalid-feedback-auth {
+    position: absolute;
+    bottom: -30px;
+    margin: 0;
+    &--active {
+        display: block;
+    }
+}
