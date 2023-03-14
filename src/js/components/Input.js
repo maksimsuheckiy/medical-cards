@@ -1,5 +1,5 @@
 export default class Input {
-    constructor(classes, attributes) {
+    constructor({classes, attributes}) {
         this.element = document.createElement('input');
         this.classes = classes;
         this.attributes = attributes;
