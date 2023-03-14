@@ -16,3 +16,4 @@ import API from "./utils/API.js";
 import Input from "./components/Input.js";
 import Select from "./components/Select.js";
 import Header from "./components/Header.js"
+import Modal from "./components/Modal.js"
