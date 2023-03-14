@@ -1,8 +1,9 @@
 import Component from "./Component.js";
 import {headerClasses} from "../utils/configs.js";
+import {authModal, createVisit} from "./Modal.js";
 
 export default class Header extends Component {
-    constructor(classes) {
+    constructor(classes, handlers) {
         const elements = {
             parent: document.querySelector("#root"),
             self: document.createElement("header"),
@@ -14,6 +15,7 @@ export default class Header extends Component {
         }
 
         super(elements, classes);
+        this.handlers = handlers;
     }
 
     render() {
@@ -26,10 +28,13 @@ export default class Header extends Component {
         createVisitButton.type = "button";
         createVisitButton.innerText = "Create Visit";
 
+        loginButton.addEventListener('click', () => this.handlers.auth());
+        createVisitButton.addEventListener('click', () => this.handlers.createVisit());
+
         self.append(nav);
         nav.append(link);
         link.append(logo);
-        
+
         if (window.localStorage.getItem("token")) {
             nav.append(createVisitButton);
         } else {
@@ -40,4 +45,12 @@ export default class Header extends Component {
     }
 }
 
-new Header(headerClasses).render();
+const header = new Header(
+    headerClasses,
+    {
+        auth: () => authModal.render(),
+        createVisit: () => createVisit.render()
+    }
+);
+
+header.render();
