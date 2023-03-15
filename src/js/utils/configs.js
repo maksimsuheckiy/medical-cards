@@ -151,7 +151,7 @@ const inputVisitDescription = {
     ]
 }
 
-const selectDoctorConfig = {
+const selectDoctorType = {
     classes: ['form-select', 'select-doctor'],
     options: [
         {
@@ -210,4 +210,5 @@ export {
     inputVisitDescription,
     selectDoctorConfig,
     selectUrgencyConfig
+    ]
 }
