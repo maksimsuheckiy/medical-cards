@@ -78,6 +78,28 @@ export const modalClasses = {
     btnSubmit: "btn btn-primary",
 }
 
+export const selectDoctorType = {
+    classes: ['form-select', 'select-doctor'],
+    options: [
+        {
+            value: 'selected',
+            title: 'Choose a doctor'
+        },
+        {
+            value: 'cardiologist',
+            text: 'Cardiologist'
+        },
+        {
+            value: 'dentist',
+            text: 'Dentist'
+        },
+        {
+            value: 'therapist',
+            text: 'Therapist'
+        }
+    ]
+}
+
 export const filterClasses = {
     parent:'',
     self:'',

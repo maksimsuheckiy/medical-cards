@@ -1,5 +1,5 @@
 export default class Select {
-    constructor(classes, options, id) {
+    constructor({classes, options, id}) {
         this.element = document.createElement('select');
         this.classes = classes;
         this.options = options;
