@@ -67,7 +67,7 @@ export const headerClasses = {
 export const modalClasses = {
     parent:"",
     self:"modal fade show",
-    modalDialog:"modal-dialog" ,
+    modalDialog:"modal-dialog modal-dialog-centered" ,
     modalContent:"modal-content",
     modalHeader:"modal-header",
     modalTitle:"modal-title fs-5",
