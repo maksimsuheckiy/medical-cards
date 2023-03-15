@@ -53,4 +53,4 @@ const header = new Header(
     }
 );
 
-header.render();
+header.render()
