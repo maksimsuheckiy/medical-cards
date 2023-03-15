@@ -14,15 +14,18 @@ export default class FilterForm extends Component {
             inputFilter:new Input(filterConfig).render(),
             selectFilter: new Select(selectStatus).render(),
             secondSelectFilter:new Select(selectPriority).render(),
+            submitForm:document.createElement('button'),
         }
         super(elements,classes)
     }
     render(){
-       const {self,labelForFilter,inputFilter,selectFilter,secondSelectFilter} = this.elements;
-        labelForFilter.innerText = 'Критерий для поиска';
-        self.id = ('oleg');
+       const {self,labelForFilter,inputFilter,selectFilter,secondSelectFilter,submitForm} = this.elements;
+        labelForFilter.innerText = 'Search';
+        submitForm.innerText= "Submit"
+        // self.id = ('oleg');
         
-        self.append(labelForFilter,inputFilter,selectFilter,secondSelectFilter);
+        
+        self.append(labelForFilter,inputFilter,selectFilter,secondSelectFilter,submitForm);
         super.render()
 
     }

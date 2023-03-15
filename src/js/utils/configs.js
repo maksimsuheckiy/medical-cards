@@ -75,7 +75,7 @@ export const modalClasses = {
     modalBody: "modal-body",
     modalFooter: "modal-footer",
     btnClose: "btn btn-secondary",
-    btnSubmit: "btn btn-primary",
+    btnSubmit: "btn btn-primary ",
 }
 
 export const selectDoctorType = {
@@ -102,12 +102,12 @@ export const selectDoctorType = {
 
 export const filterClasses = {
     parent:'',
-    self:'',
+    self:'bg-info d-flex flex-column',
     labelForFilter:'form-label',
     inputFilter:'form-control',
-    parentForFilter:'aaa',
     selectFilter:'form-select',
-    secondSelectFilter:'form-select'
+    secondSelectFilter:'form-select',
+    submitForm:'btn btn-primary justify-content-md-end'
 }
 
 
