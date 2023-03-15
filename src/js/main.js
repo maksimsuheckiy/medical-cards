@@ -23,4 +23,5 @@ import Select from "./components/Select.js";
 import Header from "./components/Header.js";
 import Modal from "./components/Modal.js";
 import LoginForm from "./components/Login.js";
+import FilterForm from './components/Filter.js';
 import Visit from "./components/Visit.js";

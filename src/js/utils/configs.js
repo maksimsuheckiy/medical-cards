@@ -53,7 +53,7 @@ const visitFormClasses = {
 const homeClasses = {
     parent: "",
     self: "main container mb-5",
-    wrapper: "d-flex justify-content-center align-items-center",
+    wrapper: "d-flex justify-content-center align-items-center filter-parent",
     statusText: "main__status-text"
 }
 
@@ -174,6 +174,91 @@ const selectDoctorType = {
     id: 'doctorVariety'
 }
 
+export const filterClasses = {
+    parent:'',
+    self:'',
+    labelForFilter:'form-label',
+    inputFilter:'form-control',
+    parentForFilter:'aaa',
+    selectFilter:'form-select',
+    secondSelectFilter:'form-select'
+}
+
+export const filterConfig = {
+    classes: ['form-control'],
+    attributes: [
+        {
+            title: 'id',
+            value: 'text'
+        },
+        {
+            title: 'placeholder',
+            value: 'Enter what u want search'
+        },
+        {
+            title: 'type',
+            value: 'text'
+        },
+    ]
+}
+
+export const selectConfig = {
+    classes: ['form-control'],
+    attributes: [
+        {
+            title: 'id',
+            value: 'select'
+        },
+        {
+            title: 'type',
+            value: 'select'
+        },
+    ]
+}
+
+export const selectStatus = {
+    classes: ['form-select'],
+    options: [
+        {
+            value: 'selected',
+            title: 'Choose a status'
+        },
+        {
+            value: 'done',
+            text: 'Done'
+        },
+        {
+            value: 'open',
+            text: 'Open'
+        },
+    ]
+}
+
+export const selectPriority = {
+    classes: ['form-select'],
+    options: [
+        {
+            value: 'selected',
+            title: 'Choose a priority'
+        },
+        {
+            value: 'normal',
+            text: 'Normal'
+        },
+        {
+            value: 'low',
+            text: 'Low'
+        }
+            value: 'priority',
+            text: 'Priority'
+        },
+        {
+            value: 'urgent',
+            text: 'Urgent'
+        }
+    ]
+}
+
 const selectUrgencyConfig = {
     classes: ['form-select', 'select-urgency'],
     options: [
@@ -186,6 +271,9 @@ const selectUrgencyConfig = {
             text: 'Normal'
         },
         {
+            value: 'low',
+            text: 'Low'
+        }
             value: 'priority',
             text: 'Priority'
         },
@@ -210,5 +298,4 @@ export {
     inputVisitDescription,
     selectDoctorConfig,
     selectUrgencyConfig
-    ]
 }
