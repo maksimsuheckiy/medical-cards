@@ -6,7 +6,7 @@ import {
     inputVisitPurpose,
     inputVisitDescription,
     patientNameConfig,
-    selectDoctorConfig,
+    selectDoctorVariety,
     selectUrgencyConfig
 } from "../utils/configs.js";
 
@@ -23,7 +23,7 @@ export default class Visit extends Component {
             patientName: new Input(patientNameConfig).render(),
             visitPurpose: new Input(inputVisitPurpose).render(),
             visitDescription: new Input(inputVisitDescription).render(),
-            doctorVariety: new Select(selectDoctorConfig).render(),
+            doctorVariety: new Select(selectDoctorVariety).render(),
             visitUrgency: new Select(selectUrgencyConfig).render()
         }
 
