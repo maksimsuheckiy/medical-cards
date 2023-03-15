@@ -180,7 +180,7 @@ export const filterClasses = {
     inputFilter:'form-control',
     selectFilter:'form-select',
     secondSelectFilter:'form-select',
-    submitForm:'btn btn-primary justify-content-md-end'
+    submitForm:'btn btn-primary '
 }
 
 export const filterConfig = {
@@ -192,7 +192,7 @@ export const filterConfig = {
         },
         {
             title: 'placeholder',
-            value: 'Enter what u want search'
+            value: 'Option for search'
         },
         {
             title: 'type',

@@ -19,11 +19,11 @@ export default class FilterForm extends Component {
         super(elements,classes)
     }
     render(){
-       const {self,labelForFilter,inputFilter,selectFilter,secondSelectFilter} = this.elements;
-        labelForFilter.innerText = 'Критерий для поиска';
-        self.id = ('oleg');
+       const {self,labelForFilter,inputFilter,selectFilter,secondSelectFilter,submitForm} = this.elements;
+        labelForFilter.innerText = 'Search';
+        submitForm.innerText="Submit";
         
-        self.append(labelForFilter,inputFilter,selectFilter,secondSelectFilter);
+        self.append(labelForFilter,inputFilter,selectFilter,secondSelectFilter,submitForm);
         super.render()
 
     }
