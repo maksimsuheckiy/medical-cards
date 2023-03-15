@@ -2,7 +2,7 @@ import Component from "./Component.js";
 import Input from "./Input.js";
 import Select from './Select.js'
 import API from "../utils/API.js";
-import { filterClasses,filterConfig,selectStatus,selectConfig } from "../utils/configs.js";
+import { filterClasses,filterConfig,selectStatus,selectPriority } from "../utils/configs.js";
 
 
 export default class FilterForm extends Component {
@@ -12,15 +12,17 @@ export default class FilterForm extends Component {
             self:document.createElement('form'),
             labelForFilter:document.createElement('label'),
             inputFilter:new Input(filterConfig).render(),
-            selectStatus: new Select(selectStatus).render()
+            selectFilter: new Select(selectStatus).render(),
+            secondSelectFilter:new Select(selectPriority).render(),
         }
         super(elements,classes)
     }
     render(){
-       const {self,labelForFilter,inputFilter,selectStatus} = this.elements;
+       const {self,labelForFilter,inputFilter,selectFilter,secondSelectFilter} = this.elements;
         labelForFilter.innerText = 'Критерий для поиска';
-        self.append(labelForFilter,inputFilter,selectStatus);
-
+        self.id = ('oleg');
+        
+        self.append(labelForFilter,inputFilter,selectFilter,secondSelectFilter);
         super.render()
 
     }

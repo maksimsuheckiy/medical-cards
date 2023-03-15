@@ -105,9 +105,11 @@ export const filterClasses = {
     self:'',
     labelForFilter:'form-label',
     inputFilter:'form-control',
+    parentForFilter:'aaa',
     selectFilter:'form-select',
     secondSelectFilter:'form-select'
 }
+
 
 
 export const filterConfig = {
@@ -142,7 +144,7 @@ export const selectConfig = {
     ]
 }
 
-export const selectStatus = {    classes: ['form-select', 'select-status'],
+export const selectStatus = {classes: ['form-select'],
     options: [
         {
             value: 'selected',
@@ -159,7 +161,7 @@ export const selectStatus = {    classes: ['form-select', 'select-status'],
     ]
 }
 
-export const selectPriority = {    classes: ['form-select', 'select-priority'],
+export const selectPriority = {classes: ['form-select'],
     options: [
         {
             value: 'selected',
