@@ -1,33 +1,37 @@
 import Component from "./Component.js";
 import Input from "./Input.js";
 import Select from './Select.js'
-import API from "../utils/API.js";
-import { filterClasses,filterConfig,selectStatus,selectPriority } from "../utils/configs.js";
-
+import {
+    filterClasses,
+    inputFilterConfig,
+    selectFilterPriority,
+    selectFilterStatus
+} from "../utils/configs.js";
 
 export default class FilterForm extends Component {
-    constructor(classes){
+    constructor(classes) {
         const elements = {
-            parent: document.querySelector('.filter-parent'),
-            self:document.createElement('form'),
-            labelForFilter:document.createElement('label'),
-            inputFilter:new Input(filterConfig).render(),
-            selectFilter: new Select(selectStatus).render(),
-            secondSelectFilter:new Select(selectPriority).render(),
-            submitForm:document.createElement('button'),
+            parent: document.querySelector('.main__inner'),
+            self: document.createElement('form'),
+            formTitle: document.createElement('h5'),
+            inputFilter: new Input(inputFilterConfig).render(),
+            selectFilter: new Select(selectFilterStatus).render(),
+            secondSelectFilter: new Select(selectFilterPriority).render(),
+            submitForm: document.createElement('button')
         }
-        super(elements,classes)
-    }
-    render(){
-       const {self,labelForFilter,inputFilter,selectFilter,secondSelectFilter,submitForm} = this.elements;
-        labelForFilter.innerText = 'Search';
-        submitForm.innerText="Submit";
-        
-        self.append(labelForFilter,inputFilter,selectFilter,secondSelectFilter,submitForm);
-        super.render()
 
+        super(elements, classes)
+    }
+
+    render() {
+        const {self, formTitle, inputFilter, selectFilter, secondSelectFilter, submitForm} = this.elements;
+        submitForm.textContent = "Submit";
+        formTitle.textContent = 'Visits filter:'
+
+        self.append(formTitle, inputFilter, selectFilter, secondSelectFilter, submitForm);
+        super.render()
     }
 }
 
-const filter = new FilterForm(filterClasses);
-filter.render();
+const filterVisits = new FilterForm(filterClasses);
+filterVisits.render();
