@@ -1,5 +1,6 @@
 import Component from "../components/Component.js";
 import {homeClasses} from "../utils/configs.js";
+
 export default class Home extends Component {
     constructor(classes) {
         const elements = {

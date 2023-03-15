@@ -25,3 +25,4 @@ import Modal from "./components/Modal.js";
 import LoginForm from "./components/Login.js";
 import FilterForm from './components/Filter.js';
 import Visit from "./components/Visit.js";
+import VisitTherapist from "./components/VisitTherapist.js";

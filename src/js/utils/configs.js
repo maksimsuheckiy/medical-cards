@@ -46,7 +46,33 @@ const visitFormClasses = {
     visitDescription: 'form-control',
     doctorVariety: 'form-select mb-4',
     visitUrgency: 'form-select mb-3'
+}
 
+const visitTherapistClasses = {
+    ...visitFormClasses,
+}
+
+
+const inputPatientAge = {
+    classes: ['form-control'],
+    attributes: [
+        {
+            title: 'required',
+            value: ''
+        },
+        {
+            title: 'id',
+            value: 'age'
+        },
+        {
+            title: 'placeholder',
+            value: 'your age'
+        },
+        {
+            title: 'type',
+            value: 'text'
+        },
+    ]
 }
 
 const homeClasses = {
@@ -280,5 +306,7 @@ export {
     selectUrgencyConfig,
     inputFilterConfig,
     selectFilterStatus,
-    selectFilterPriority
+    selectFilterPriority,
+    visitTherapistClasses,
+    inputPatientAge
 }
