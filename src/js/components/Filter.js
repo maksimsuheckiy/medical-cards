@@ -12,14 +12,14 @@ export default class FilterForm extends Component {
             self:document.createElement('form'),
             labelForFilter:document.createElement('label'),
             inputFilter:new Input(filterConfig).render(),
-            selectStatus: new Select(selectConfig).render()
+            selectStatus: new Select(selectStatus).render()
         }
         super(elements,classes)
     }
     render(){
-       const {self,labelForFilter,inputFilter,selectFilter} = this.elements;
+       const {self,labelForFilter,inputFilter,selectStatus} = this.elements;
         labelForFilter.innerText = 'Критерий для поиска';
-        self.append(labelForFilter,inputFilter);
+        self.append(labelForFilter,inputFilter,selectStatus);
 
         super.render()
 
