@@ -1,4 +1,11 @@
-.header-logo {
-    width: 43px;
-    height: auto;
+.header {
+    margin-bottom: 3rem;
+    &__logo-box {
+        cursor: pointer;
+    }
+
+    &__logo {
+        width: 43px;
+        height: auto;
+    }
 }

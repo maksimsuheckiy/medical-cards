@@ -8,8 +8,8 @@ export default class Header extends Component {
             parent: document.querySelector("#root"),
             self: document.createElement("header"),
             nav: document.createElement("nav"),
-            link: document.createElement("a"),
             logo: document.createElement("img"),
+            logoBox: document.createElement('div'),
             loginButton: document.createElement("button"),
             createVisitButton: document.createElement("button"),
         }
@@ -19,8 +19,7 @@ export default class Header extends Component {
     }
 
     render() {
-        const {self, nav, link, logo, loginButton, createVisitButton} = this.elements;
-        link.href = "#";
+        const {self, nav, logo, logoBox, loginButton, createVisitButton} = this.elements;
         logo.src = "/images/logo.svg";
         logo.alt = "Medical cards";
         loginButton.type = "button";
@@ -28,12 +27,13 @@ export default class Header extends Component {
         createVisitButton.type = "button";
         createVisitButton.innerText = "Create Visit";
 
+        logoBox.addEventListener('click', () => location.reload());
         loginButton.addEventListener('click', () => this.handlers.auth());
         createVisitButton.addEventListener('click', () => this.handlers.createVisit());
 
         self.append(nav);
-        nav.append(link);
-        link.append(logo);
+        logoBox.append(logo);
+        nav.append(logoBox);
 
         if (window.localStorage.getItem("token")) {
             nav.append(createVisitButton);

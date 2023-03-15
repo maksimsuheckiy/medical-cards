@@ -56,24 +56,24 @@ export const homeClasses = {
 
 export const headerClasses = {
     parent: "",
-    self: "bg-primary mb-5",
+    self: "header bg-primary",
     nav: "navbar navbar-light d-flex justify-content-between container",
-    link: "navbar-brand",
-    logo: "header-logo",
+    logoBox: "navbar-brand header__logo-box",
+    logo: "header__logo",
     loginButton: "btn btn-outline-light",
     createVisitButton: "btn btn-outline-light",
 }
 
 export const modalClasses = {
-    parent:"",
-    self:"modal fade show",
-    modalDialog:"modal-dialog modal-dialog-centered" ,
-    modalContent:"modal-content",
-    modalHeader:"modal-header",
-    modalTitle:"modal-title fs-5",
-    crossBtn:"btn-close",
-    modalBody:"modal-body",
-    modalFooter:"modal-footer",
-    btnClose:"btn btn-secondary",
-    btnSubmit:"btn btn-primary",
+    parent: "",
+    self: "modal fade show",
+    modalDialog: "modal-dialog modal-dialog-centered",
+    modalContent: "modal-content",
+    modalHeader: "modal-header",
+    modalTitle: "modal-title fs-5",
+    crossBtn: "btn-close",
+    modalBody: "modal-body",
+    modalFooter: "modal-footer",
+    btnClose: "btn btn-secondary",
+    btnSubmit: "btn btn-primary",
 }
