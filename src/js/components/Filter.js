@@ -21,13 +21,12 @@ export default class FilterForm extends Component {
        const {self,labelForFilter,inputFilter,selectFilter,secondSelectFilter} = this.elements;
         labelForFilter.innerText = 'Критерий для поиска';
         self.id = ('oleg');
-        
+
         self.append(labelForFilter,inputFilter,selectFilter,secondSelectFilter);
         super.render()
 
     }
 }
- 
+
 const filter = new FilterForm(filterClasses);
 filter.render();
-console.log(filter);

@@ -15,7 +15,6 @@ const emailLoginConfig = {
         }
     ]
 }
-
 const passwordLoginConfig = {
     classes: ['form-select'],
     attributes: [
@@ -151,7 +150,7 @@ const inputVisitDescription = {
     ]
 }
 
-const selectDoctorType = {
+const selectDoctorVariety = {
     classes: ['form-select', 'select-doctor'],
     options: [
         {
@@ -202,20 +201,6 @@ export const filterConfig = {
     ]
 }
 
-export const selectConfig = {
-    classes: ['form-control'],
-    attributes: [
-        {
-            title: 'id',
-            value: 'select'
-        },
-        {
-            title: 'type',
-            value: 'select'
-        },
-    ]
-}
-
 export const selectStatus = {
     classes: ['form-select'],
     options: [
@@ -248,9 +233,6 @@ export const selectPriority = {
         {
             value: 'low',
             text: 'Low'
-        }
-            value: 'priority',
-            text: 'Priority'
         },
         {
             value: 'urgent',
@@ -273,9 +255,6 @@ const selectUrgencyConfig = {
         {
             value: 'low',
             text: 'Low'
-        }
-            value: 'priority',
-            text: 'Priority'
         },
         {
             value: 'urgent',
@@ -296,6 +275,6 @@ export {
     patientNameConfig,
     inputVisitPurpose,
     inputVisitDescription,
-    selectDoctorConfig,
+    selectDoctorVariety,
     selectUrgencyConfig
 }
