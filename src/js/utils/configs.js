@@ -50,7 +50,7 @@ export const loginFormClasses = {
 export const homeClasses = {
     parent: "",
     self: "main container mb-5",
-    wrapper: "d-flex justify-content-center align-items-center",
+    wrapper: "d-flex justify-content-center align-items-center filter-parent",
     statusText: "main__status-text"
 }
 
@@ -76,4 +76,84 @@ export const modalClasses = {
     modalFooter: "modal-footer",
     btnClose: "btn btn-secondary",
     btnSubmit: "btn btn-primary",
+}
+
+export const filterClasses = {
+    parent:'',
+    self:'',
+    labelForFilter:'form-label',
+    inputFilter:'form-control',
+    selectFilter:'form-select',
+    secondSelectFilter:'form-select'
+}
+
+
+export const filterConfig = {
+    classes: ['form-control'],
+    attributes: [
+        {
+            title: 'id',
+            value: 'text'
+        },
+        {
+            title: 'placeholder',
+            value: 'Enter what u want search'
+        },
+        {
+            title: 'type',
+            value: 'text'
+        },
+    ]
+}
+
+export const selectConfig = {
+    classes: ['form-control'],
+    attributes: [
+        {
+            title: 'id',
+            value: 'select'
+        },
+        {
+            title: 'type',
+            value: 'select'
+        },
+    ]
+}
+
+export const selectStatus = {    classes: ['form-select', 'select-status'],
+    options: [
+        {
+            value: 'selected',
+            title: 'Choose a status'
+        },
+        {
+            value: 'done',
+            text: 'Done'
+        },
+        {
+            value: 'open',
+            text: 'Open'
+        },
+    ]
+}
+
+export const selectPriority = {    classes: ['form-select', 'select-priority'],
+    options: [
+        {
+            value: 'selected',
+            title: 'Choose a priority'
+        },
+        {
+            value: 'high',
+            text: 'High'
+        },
+        {
+            value: 'normal',
+            text: 'Normal'
+        },
+        {
+            value: 'low',
+            text: 'Low'
+        }
+    ]
 }
