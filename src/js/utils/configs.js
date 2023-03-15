@@ -52,7 +52,7 @@ const visitFormClasses = {
 const homeClasses = {
     parent: "",
     self: "main container mb-5",
-    wrapper: "d-flex justify-content-center align-items-center filter-parent",
+    wrapper: "main__inner",
     statusText: "main__status-text"
 }
 
@@ -110,7 +110,7 @@ const patientNameConfig = {
         {
             title: 'type',
             value: 'text'
-        },
+        }
     ]
 }
 
@@ -132,7 +132,7 @@ const inputVisitPurpose = {
         {
             title: 'type',
             value: 'text'
-        },
+        }
     ]
 }
 
@@ -173,17 +173,17 @@ const selectDoctorVariety = {
     id: 'doctorVariety'
 }
 
-export const filterClasses = {
-    parent:'',
-    self:'bg-info d-flex flex-column',
-    labelForFilter:'form-label',
-    inputFilter:'form-control',
-    selectFilter:'form-select',
-    secondSelectFilter:'form-select',
-    submitForm:'btn btn-primary '
+const filterClasses = {
+    parent: 'main__inner',
+    self: 'filter bg-info',
+    formTitle: 'mb-4 text-white',
+    inputFilter: 'form-control mb-4',
+    selectFilter: 'form-select mb-4',
+    secondSelectFilter: 'form-select mb-4',
+    submitForm: 'btn btn-primary '
 }
 
-export const filterConfig = {
+const inputFilterConfig = {
     classes: ['form-control'],
     attributes: [
         {
@@ -192,7 +192,7 @@ export const filterConfig = {
         },
         {
             title: 'placeholder',
-            value: 'Option for search'
+            value: 'Search by title or description'
         },
         {
             title: 'type',
@@ -201,7 +201,7 @@ export const filterConfig = {
     ]
 }
 
-export const selectStatus = {
+const selectFilterStatus = {
     classes: ['form-select'],
     options: [
         {
@@ -219,7 +219,7 @@ export const selectStatus = {
     ]
 }
 
-export const selectPriority = {
+const selectFilterPriority = {
     classes: ['form-select'],
     options: [
         {
@@ -272,9 +272,13 @@ export {
     homeClasses,
     headerClasses,
     modalClasses,
+    filterClasses,
     patientNameConfig,
     inputVisitPurpose,
     inputVisitDescription,
     selectDoctorVariety,
-    selectUrgencyConfig
+    selectUrgencyConfig,
+    inputFilterConfig,
+    selectFilterStatus,
+    selectFilterPriority
 }

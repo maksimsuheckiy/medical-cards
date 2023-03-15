@@ -15,9 +15,9 @@ export default class Home extends Component {
     render() {
         const {self, wrapper, statusText} = this.elements;
 
-        self.append(wrapper);
-        statusText.innerText = 'No items have been added'
+        statusText.innerText = 'No items have been added';
         wrapper.append(statusText);
+        self.append(wrapper);
 
         super.render();
     }

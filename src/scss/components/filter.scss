@@ -1,15 +1,7 @@
-form{
-    border: 1px aqua;
-    padding:20px;
-    position:absolute;
-    left: 50px;
-    top: 100px;
-    background-color: text-primary-emphasis;
-    
-}
-.form-control{
-    margin-bottom: 20px;
-}
-.form-select{
-    margin-bottom: 20px;
+.filter {
+    border: 1px solid #00FFFF;
+    padding: 20px;
+    border-radius: 6px;
+    width: 100%;
+    max-width: 300px;
 }
