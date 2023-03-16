@@ -313,7 +313,6 @@ const selectDoctorVariety = {
 }
 
 const filterClasses = {
-    parent: 'main__inner',
     self: 'filter bg-info',
     formTitle: 'mb-4 text-white',
     inputFilter: 'form-control mb-4',

@@ -1,10 +1,11 @@
 import Component from "./Component.js";
 import Input from "./Input.js";
 import API from "../utils/API.js";
-import {loginFormClasses, emailLoginConfig, passwordLoginConfig} from "../utils/configs.js";
+import {loginFormClasses, emailLoginConfig, passwordLoginConfig, homeClasses} from "../utils/configs.js";
 import {headerClasses} from "../utils/configs.js";
 import {emailRegExp} from "../utils/regExp.js";
 import Header from "./Header.js";
+import Home from "../containers/Home.js";
 
 export default class LoginForm extends Component {
     constructor(classes) {
@@ -64,6 +65,7 @@ export default class LoginForm extends Component {
                 this.clear(inputEmail, inputPassword, errorBox);
                 const header = document.querySelector('header');
                 header.remove();
+                new Home(homeClasses).render();
                 new Header(headerClasses).render();
                 return response;
             } else {
