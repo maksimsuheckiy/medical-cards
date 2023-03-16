@@ -1,4 +1,3 @@
-import Component from "./Component.js";
 import Select from "./Select.js";
 import Input from "./Input.js";
 import {
@@ -10,9 +9,9 @@ import {
     selectUrgencyConfig
 } from "../utils/configs.js";
 
-export default class Visit extends Component {
+export default class Visit {
     constructor(classes) {
-        const elements = {
+        this.elements = {
             self: document.createElement('form'),
             wrapperName: document.createElement('div'),
             wrapperPurpose: document.createElement('div'),
@@ -27,10 +26,14 @@ export default class Visit extends Component {
             visitUrgency: new Select(selectUrgencyConfig).render()
         }
 
-        super(elements, classes);
+        this.classes = classes;
     }
 
-    render() {
+    chooseDoctorHandle(event) {
+        console.log(event.target.value);
+    }
+
+    render(doctorTypeVisit) {
         const {
             self,
             wrapperName,
@@ -57,10 +60,17 @@ export default class Visit extends Component {
         wrapperName.append(labelForName, patientName);
         wrapperPurpose.append(labelForPurpose, visitPurpose);
         wrapperDescription.append(labelForDescription, visitDescription);
-
         self.append(wrapperName, wrapperPurpose, wrapperDescription, doctorVariety, visitUrgency);
-        return super.render()
+
+        doctorVariety.addEventListener('change', event => this.chooseDoctorHandle(event));
+
+        for (let prop in this.elements) {
+            const element = this.elements[prop];
+            element.className = this.classes[prop];
+        }
+
+        return self
     }
 }
 
-export const visitDoctor = new Visit(visitFormClasses);
+export const visitDoctorForm = new Visit(visitFormClasses);

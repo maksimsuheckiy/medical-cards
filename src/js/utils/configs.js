@@ -46,7 +46,146 @@ const visitFormClasses = {
     visitDescription: 'form-control',
     doctorVariety: 'form-select mb-4',
     visitUrgency: 'form-select mb-3'
+}
 
+const visitTherapistClasses = {
+    ...visitFormClasses,
+    patientAgeWrapper: 'mb-3',
+    labelForAge: 'form-label mb-3',
+    inputPatientAge: 'form-control mb-3',
+}
+
+const visitCardiologistClasses = {
+    ...visitFormClasses,
+    patientPressureWrapper: 'mb-3',
+    patientMassIndexWrapper: 'mb-3',
+    heartDiseaseWrapper: 'mb-3',
+    patientAgeWrapper: 'mb-3',
+    patientPressureLabel: 'form-label mb-3',
+    patientMassIndexLabel: 'form-label mb-3',
+    heartDiseaseLabel: 'form-label mb-3',
+    labelForAge: 'form-label mb-3',
+    inputPatientPressure: 'form-control mb-3',
+    inputPatientMassIndex: 'form-control mb-3',
+    inputPatientHeartDisease: 'form-control mb-3',
+    inputPatientAge: 'form-control mb-3',
+}
+
+const visitDentistClasses = {
+    ...visitFormClasses,
+    lastVisitWrapper: 'mb-3',
+    labelForLastVisit: 'form-label mb-3',
+    inputLastVisit: 'form-control mb-3'
+}
+
+const inputPatientAge = {
+    classes: ['form-control'],
+    attributes: [
+        {
+            title: 'required',
+            value: ''
+        },
+        {
+            title: 'id',
+            value: 'patientAge'
+        },
+        {
+            title: 'placeholder',
+            value: 'your age'
+        },
+        {
+            title: 'type',
+            value: 'text'
+        },
+    ]
+}
+
+const inputLastVisit = {
+    classes: ['form-control'],
+    attributes: [
+        {
+            title: 'required',
+            value: ''
+        },
+        {
+            title: 'id',
+            value: 'patientLastVisit'
+        },
+        {
+            title: 'placeholder',
+            value: 'Your last visit'
+        },
+        {
+            title: 'type',
+            value: 'text'
+        },
+    ]
+}
+
+const inputPatientPressure = {
+    classes: ['form-control'],
+    attributes: [
+        {
+            title: 'required',
+            value: ''
+        },
+        {
+            title: 'id',
+            value: 'patientPressure'
+        },
+        {
+            title: 'placeholder',
+            value: 'Your normal pressure'
+        },
+        {
+            title: 'type',
+            value: 'text'
+        },
+    ]
+}
+
+const inputPatientMassIndex = {
+    classes: ['form-control'],
+    attributes: [
+        {
+            title: 'required',
+            value: ''
+        },
+        {
+            title: 'id',
+            value: 'patientMassIndex'
+        },
+        {
+            title: 'placeholder',
+            value: 'Your normal pressure'
+        },
+        {
+            title: 'type',
+            value: 'text'
+        },
+    ]
+}
+
+const inputPatientHeartDisease = {
+    classes: ['form-control'],
+    attributes: [
+        {
+            title: 'required',
+            value: ''
+        },
+        {
+            title: 'id',
+            value: 'patientHeartDisease'
+        },
+        {
+            title: 'placeholder',
+            value: 'Your heart disease'
+        },
+        {
+            title: 'type',
+            value: 'text'
+        },
+    ]
 }
 
 const homeClasses = {
@@ -280,5 +419,13 @@ export {
     selectUrgencyConfig,
     inputFilterConfig,
     selectFilterStatus,
-    selectFilterPriority
+    selectFilterPriority,
+    visitTherapistClasses,
+    visitCardiologistClasses,
+    visitDentistClasses,
+    inputPatientAge,
+    inputLastVisit,
+    inputPatientPressure,
+    inputPatientMassIndex,
+    inputPatientHeartDisease
 }
