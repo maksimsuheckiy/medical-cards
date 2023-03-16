@@ -30,11 +30,7 @@ export default class Visit {
     }
 
     chooseDoctorHandle(event) {
-        const doctorType = event.target.value;
-
-        if (doctorType !== selectDoctorVariety.options[0].title) {
-
-        }
+        console.log(event.target.value);
     }
 
     render(doctorTypeVisit) {
@@ -64,9 +60,9 @@ export default class Visit {
         wrapperName.append(labelForName, patientName);
         wrapperPurpose.append(labelForPurpose, visitPurpose);
         wrapperDescription.append(labelForDescription, visitDescription);
+        self.append(wrapperName, wrapperPurpose, wrapperDescription, doctorVariety, visitUrgency);
 
         doctorVariety.addEventListener('change', event => this.chooseDoctorHandle(event));
-        self.append(wrapperName, wrapperPurpose, wrapperDescription, doctorVariety, visitUrgency);
 
         for (let prop in this.elements) {
             const element = this.elements[prop];
@@ -77,4 +73,4 @@ export default class Visit {
     }
 }
 
-export const visitDoctor = new Visit(visitFormClasses);
+export const visitDoctorForm = new Visit(visitFormClasses);

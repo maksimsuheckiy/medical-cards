@@ -26,3 +26,5 @@ import LoginForm from "./components/Login.js";
 import FilterForm from './components/Filter.js';
 import Visit from "./components/Visit.js";
 import VisitTherapist from "./components/VisitTherapist.js";
+import VisitCardiologist from "./components/VisitCardiologist.js";
+import VisitDentist from "./components/VisitDentist.js";

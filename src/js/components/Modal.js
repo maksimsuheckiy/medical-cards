@@ -1,7 +1,7 @@
 import Component from "./Component.js";
 import {modalClasses} from "../utils/configs.js";
 import {loginForm} from "./Login.js";
-import {visitDoctor} from "./Visit.js";
+import {visitDoctorForm} from "./Visit.js";
 
 export default class Modal extends Component {
     constructor(classes, title, actionTitle, children) {
@@ -73,7 +73,7 @@ export default class Modal extends Component {
 }
 
 const authModal = new Modal(modalClasses, 'Authorization', 'Login', loginForm);
-const createVisit = new Modal(modalClasses, 'Create visit', 'Create', visitDoctor);
+const createVisit = new Modal(modalClasses, 'Create visit', 'Create', visitDoctorForm);
 
 export {
     authModal,
