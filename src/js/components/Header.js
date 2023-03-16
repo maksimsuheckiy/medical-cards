@@ -44,5 +44,4 @@ export default class Header extends Component {
     }
 }
 
-export const header = new Header(headerClasses);
-header.render()
+new Header(headerClasses).render();
