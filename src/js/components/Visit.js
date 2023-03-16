@@ -38,7 +38,7 @@ export default class Visit {
     chooseDoctorHandle(event) {
         const doctorType = event.target.value;
         if (doctorType !== selectDoctorVariety.options[0].title) {
-            return doctorType
+            createVisit.selectedDoctor(doctorType);
         }
     }
 

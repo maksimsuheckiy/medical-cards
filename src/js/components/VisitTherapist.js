@@ -18,7 +18,7 @@ export default class VisitTherapist extends Visit {
     }
 
     render() {
-        const {self} = this.elements;
+        const {self, wrapperControl} = this.elements;
         const {patientAgeWrapper, labelForAge, inputPatientAge} = this.TherapistElements;
 
         for (let prop in this.TherapistElements) {
@@ -30,7 +30,7 @@ export default class VisitTherapist extends Visit {
         patientAgeWrapper.append(labelForAge, inputPatientAge);
 
         super.render();
-        self.append(patientAgeWrapper);
+        self.append(patientAgeWrapper, wrapperControl);
         return self
     }
 }

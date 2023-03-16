@@ -2,6 +2,9 @@ import Component from "./Component.js";
 import {modalClasses} from "../utils/configs.js";
 import {loginForm} from "./LoginForm.js";
 import {visitDoctorForm} from "./Visit.js";
+import {visitCardiologistForm} from "./VisitCardiologist.js";
+import {visitDentistForm} from "./VisitDentist.js";
+import {visitTherapistForm} from "./VisitTherapist.js";
 
 export default class Modal extends Component {
     constructor(classes, title, children) {
@@ -28,6 +31,20 @@ export default class Modal extends Component {
         const {errorBox} = this.children.elements;
         errorBox?.remove();
         this.elements.self.remove();
+    }
+
+    selectedDoctor(doctorType) {
+        switch (doctorType) {
+            case 'cardiologist':
+                console.log(visitCardiologistForm.render());
+                break
+            case 'dentist':
+                console.log(visitDentistForm.render());
+                break
+            case 'therapist':
+                console.log(visitTherapistForm.render());
+                break
+        }
     }
 
     render() {
@@ -65,3 +82,5 @@ export {
     authModal,
     createVisit
 }
+
+console.log(visitDoctorForm);
