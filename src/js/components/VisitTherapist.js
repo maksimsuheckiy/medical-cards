@@ -1,9 +1,6 @@
 import Visit from "./Visit.js";
 import Input from "./Input.js";
-import {
-    inputPatientAge,
-    visitTherapistClasses,
-} from "../utils/configs.js";
+import {inputPatientAge} from "../utils/configs.js";
 
 export default class VisitTherapist extends Visit {
     constructor(classes) {
@@ -29,11 +26,7 @@ export default class VisitTherapist extends Visit {
         labelForAge.setAttribute('for', 'patientAge');
         patientAgeWrapper.append(labelForAge, inputPatientAge);
 
-        super.render();
         self.append(patientAgeWrapper, wrapperControl);
-        return self
+        return super.render();
     }
 }
-
-export const visitTherapistForm = new VisitTherapist(visitTherapistClasses);
-visitTherapistForm.render()

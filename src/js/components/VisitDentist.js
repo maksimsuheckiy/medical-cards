@@ -1,9 +1,6 @@
 import Visit from "./Visit.js";
-import {
-    visitDentistClasses,
-    inputLastVisit
-} from "../utils/configs.js";
 import Input from "./Input.js";
+import {inputLastVisit} from "../utils/configs.js";
 
 export default class VisitDentist extends Visit {
     constructor(classes) {
@@ -29,11 +26,7 @@ export default class VisitDentist extends Visit {
         labelForLastVisit.setAttribute('for', 'patientLastVisit');
         lastVisitWrapper.append(labelForLastVisit, inputLastVisit);
 
-        super.render();
         self.append(lastVisitWrapper, wrapperControl);
-        return self
+        return super.render();
     }
 }
-
-export const visitDentistForm = new VisitDentist(visitDentistClasses);
-visitDentistForm.render()
