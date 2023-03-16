@@ -2,9 +2,7 @@ import Component from "./Component.js";
 import Input from "./Input.js";
 import API from "../utils/API.js";
 import {loginFormClasses, emailLoginConfig, passwordLoginConfig, homeClasses} from "../utils/configs.js";
-import {headerClasses} from "../utils/configs.js";
 import {emailRegExp} from "../utils/regExp.js";
-import Header from "./Header.js";
 import Home from "../containers/Home.js";
 
 export default class LoginForm extends Component {
@@ -63,8 +61,7 @@ export default class LoginForm extends Component {
             if (this.checkCredits(data)) {
                 const response = await this.sendRequest(data);
                 this.clear(inputEmail, inputPassword, errorBox);
-                new Home(homeClasses).render();
-                new Header(headerClasses).reRender();
+                new Home(homeClasses).reRender();
                 return response;
             } else {
                 throw new Error('Invalid email or password less then 4 characters');
