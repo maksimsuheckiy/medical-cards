@@ -1,10 +1,15 @@
 import Component from "./Component.js";
-import {modalClasses} from "../utils/configs.js";
 import {loginForm} from "./LoginForm.js";
 import {visitDoctorForm} from "./Visit.js";
-import {visitCardiologistForm} from "./VisitCardiologist.js";
-import {visitDentistForm} from "./VisitDentist.js";
-import {visitTherapistForm} from "./VisitTherapist.js";
+import VisitCardiologist from "./VisitCardiologist.js";
+import VisitDentist from "./VisitDentist.js";
+import VisitTherapist from "./VisitTherapist.js";
+import {
+    modalClasses,
+    visitCardiologistClasses,
+    visitTherapistClasses,
+    visitDentistClasses
+} from "../utils/configs.js";
 
 export default class Modal extends Component {
     constructor(classes, title, children) {
@@ -36,13 +41,13 @@ export default class Modal extends Component {
     selectedDoctor(doctorType) {
         switch (doctorType) {
             case 'cardiologist':
-                console.log(visitCardiologistForm.render());
+                const cardiologist = new VisitCardiologist(visitCardiologistClasses);
                 break
             case 'dentist':
-                console.log(visitDentistForm.render());
+                const dentist = new VisitDentist(visitDentistClasses);
                 break
             case 'therapist':
-                console.log(visitTherapistForm.render());
+                const therapist = new VisitTherapist(visitTherapistClasses);
                 break
         }
     }
@@ -82,5 +87,3 @@ export {
     authModal,
     createVisit
 }
-
-console.log(visitDoctorForm);

@@ -1,12 +1,11 @@
 import Visit from "./Visit.js";
+import Input from "./Input.js";
 import {
-    visitCardiologistClasses,
     inputPatientAge,
     inputPatientPressure,
     inputPatientMassIndex,
     inputPatientHeartDisease
 } from "../utils/configs.js";
-import Input from "./Input.js";
 
 export default class VisitCardiologist extends Visit {
     constructor(classes) {
@@ -62,7 +61,6 @@ export default class VisitCardiologist extends Visit {
             element.className = this.classes[prop];
         }
 
-        super.render();
         self.append(
             patientPressureWrapper,
             patientMassIndexWrapper,
@@ -71,8 +69,6 @@ export default class VisitCardiologist extends Visit {
             wrapperControl
         );
 
-        return self
+        return super.render();
     }
 }
-
-export const visitCardiologistForm = new VisitCardiologist(visitCardiologistClasses);
