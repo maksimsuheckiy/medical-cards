@@ -18,7 +18,7 @@ export default class VisitDentist extends Visit {
     }
 
     render() {
-        const {self} = this.elements;
+        const {self, wrapperControl} = this.elements;
         const {lastVisitWrapper, labelForLastVisit, inputLastVisit} = this.DentistElements;
 
         for (let prop in this.DentistElements) {
@@ -30,7 +30,7 @@ export default class VisitDentist extends Visit {
         lastVisitWrapper.append(labelForLastVisit, inputLastVisit);
 
         super.render();
-        self.append(lastVisitWrapper);
+        self.append(lastVisitWrapper, wrapperControl);
         return self
     }
 }

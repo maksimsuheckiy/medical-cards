@@ -31,7 +31,7 @@ export default class VisitCardiologist extends Visit {
     }
 
     render() {
-        const {self} = this.elements;
+        const {self, wrapperControl} = this.elements;
         const {
             patientPressureWrapper,
             patientMassIndexWrapper,
@@ -63,10 +63,16 @@ export default class VisitCardiologist extends Visit {
         }
 
         super.render();
-        self.append(patientPressureWrapper, patientMassIndexWrapper, heartDiseaseWrapper, patientAgeWrapper);
+        self.append(
+            patientPressureWrapper,
+            patientMassIndexWrapper,
+            heartDiseaseWrapper,
+            patientAgeWrapper,
+            wrapperControl
+        );
+
         return self
     }
 }
 
 export const visitCardiologistForm = new VisitCardiologist(visitCardiologistClasses);
-visitCardiologistForm.render();
