@@ -17,6 +17,10 @@ export default class Header extends Component {
         super(elements, classes);
     }
 
+    reRender() {
+        this.render();
+    }
+
     render() {
         const {self, nav, logo, logoBox, loginButton, createVisitButton} = this.elements;
         logo.src = "/images/logo.svg";
