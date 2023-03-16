@@ -29,6 +29,13 @@ export default class LoginForm extends Component {
         error.remove();
     }
 
+    checkCredits({email, password}) {
+        const isValidEmail = emailRegExp.test(String(email).toLowerCase());
+        const isValidPassword = password.length > 4;
+
+        return !(!isValidEmail || !isValidPassword);
+    }
+
     async sendRequest(data) {
         const api = new API(process.env.API_URL);
         const headers = api.getHeaders(true);
@@ -44,13 +51,6 @@ export default class LoginForm extends Component {
         }
     }
 
-    checkCredits({email, password}) {
-        const isValidEmail = emailRegExp.test(String(email).toLowerCase());
-        const isValidPassword = password.length > 4;
-
-        return !(!isValidEmail || !isValidPassword);
-    }
-
     async handleLogin() {
         const {inputEmail, inputPassword, errorBox} = this.elements;
 
@@ -63,10 +63,8 @@ export default class LoginForm extends Component {
             if (this.checkCredits(data)) {
                 const response = await this.sendRequest(data);
                 this.clear(inputEmail, inputPassword, errorBox);
-                const header = document.querySelector('header');
-                header.remove();
                 new Home(homeClasses).render();
-                new Header(headerClasses).render();
+                new Header(headerClasses).reRender();
                 return response;
             } else {
                 throw new Error('Invalid email or password less then 4 characters');
