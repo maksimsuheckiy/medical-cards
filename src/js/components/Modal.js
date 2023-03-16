@@ -1,6 +1,6 @@
 import Component from "./Component.js";
 import {modalClasses} from "../utils/configs.js";
-import {loginForm} from "./Login.js";
+import {loginForm} from "./LoginForm.js";
 import {visitDoctorForm} from "./Visit.js";
 
 export default class Modal extends Component {
@@ -16,7 +16,7 @@ export default class Modal extends Component {
             modalBody: document.createElement('div'),
             modalFooter: document.createElement('div'),
             btnClose: document.createElement('button'),
-            btnSubmit: document.createElement('button'),
+            btnSubmit: document.createElement('button')
         }
 
         super(elements, classes);

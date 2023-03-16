@@ -9,7 +9,7 @@ import {
     selectDoctorVariety,
     selectUrgencyConfig,
     inputCreateVisitSubmit,
-    inputCloseVisitBtn
+    inputCloseModal
 } from "../utils/configs.js";
 
 export default class Visit {
@@ -27,7 +27,7 @@ export default class Visit {
             visitPurpose: new Input(inputVisitPurpose).render(),
             visitDescription: new Input(inputVisitDescription).render(),
             createVisitBtn: new Input(inputCreateVisitSubmit).render(),
-            closeVisitBtn: new Input(inputCloseVisitBtn).render(),
+            closeVisitBtn: new Input(inputCloseModal).render(),
             doctorVariety: new Select(selectDoctorVariety).render(),
             visitUrgency: new Select(selectUrgencyConfig).render()
         }
@@ -36,7 +36,10 @@ export default class Visit {
     }
 
     chooseDoctorHandle(event) {
-        console.log(event.target.value);
+        const doctorType = event.target.value;
+        if (doctorType !== selectDoctorVariety.options[0].title) {
+            return doctorType
+        }
     }
 
     render(doctorTypeVisit) {
@@ -69,7 +72,7 @@ export default class Visit {
         wrapperName.append(labelForName, patientName);
         wrapperPurpose.append(labelForPurpose, visitPurpose);
         wrapperDescription.append(labelForDescription, visitDescription);
-        wrapperControl.append(closeVisitBtn, createVisitBtn);
+        wrapperControl.append(createVisitBtn, closeVisitBtn);
         self.append(wrapperName, wrapperPurpose, wrapperDescription, doctorVariety, visitUrgency, wrapperControl);
 
         doctorVariety.addEventListener('change', event => this.chooseDoctorHandle(event));

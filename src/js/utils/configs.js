@@ -236,8 +236,10 @@ const loginFormClasses = {
     inputPassword: 'form-control mb-3',
     wrapperEmail: 'mb-3 position-relative',
     wrapperPassword: 'login__wrapper-password position-relative',
+    wrapperControl: 'd-flex gap-3',
     errorBox: 'invalid-feedback invalid-feedback-login',
-    authBtn: 'btn btn-primary login__btn'
+    authBtn: 'btn btn-primary login__btn',
+    closeBtn: 'login__btn btn btn-secondary'
 }
 
 const inputAuthSubmit = {
@@ -268,12 +270,12 @@ const inputCreateVisitSubmit = {
     ]
 }
 
-const inputCloseVisitBtn = {
-    classes: ['btn', 'btn-danger'],
+const inputCloseModal = {
+    classes: ['btn', 'btn-secondary'],
     attributes: [
         {
             title: 'value',
-            value: 'Close visit'
+            value: 'Close'
         },
         {
             title: 'type',
@@ -480,5 +482,5 @@ export {
     inputPatientMassIndex,
     inputPatientHeartDisease,
     inputCreateVisitSubmit,
-    inputCloseVisitBtn
+    inputCloseModal
 }

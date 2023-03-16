@@ -1,15 +1,16 @@
 import Component from "./Component.js";
 import Input from "./Input.js";
 import API from "../utils/API.js";
+import Home from "../containers/Home.js";
 import {
     loginFormClasses,
     emailLoginConfig,
     passwordLoginConfig,
     homeClasses,
-    inputAuthSubmit
+    inputAuthSubmit,
+    inputCloseModal
 } from "../utils/configs.js";
 import {emailRegExp} from "../utils/regExp.js";
-import Home from "../containers/Home.js";
 import {authModal} from "./Modal.js";
 
 export default class LoginForm extends Component {
@@ -20,10 +21,12 @@ export default class LoginForm extends Component {
             labelForPassword: document.createElement('label'),
             wrapperEmail: document.createElement('div'),
             wrapperPassword: document.createElement('div'),
+            wrapperControl: document.createElement('div'),
             errorBox: document.createElement('span'),
             inputEmail: new Input(emailLoginConfig).render(),
             inputPassword: new Input(passwordLoginConfig).render(),
-            authBtn: new Input(inputAuthSubmit).render()
+            authBtn: new Input(inputAuthSubmit).render(),
+            closeBtn: new Input(inputCloseModal).render()
         }
 
         super(elements, classes)
@@ -87,11 +90,13 @@ export default class LoginForm extends Component {
             self,
             wrapperEmail,
             wrapperPassword,
+            wrapperControl,
             labelForEmail,
             labelForPassword,
             inputEmail,
             inputPassword,
-            authBtn
+            authBtn,
+            closeBtn
         } = this.elements;
 
         labelForEmail.setAttribute('for', 'email');
@@ -101,7 +106,8 @@ export default class LoginForm extends Component {
 
         wrapperEmail.append(labelForEmail, inputEmail);
         wrapperPassword.append(labelForPassword, inputPassword);
-        self.append(wrapperEmail, wrapperPassword, authBtn);
+        wrapperControl.append(authBtn, closeBtn);
+        self.append(wrapperEmail, wrapperPassword, wrapperControl);
 
         authBtn.addEventListener('click', event => this.handleLogin(event))
 
