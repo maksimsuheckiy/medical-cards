@@ -22,7 +22,7 @@ import Input from "./components/Input.js";
 import Select from "./components/Select.js";
 import Header from "./components/Header.js";
 import Modal from "./components/Modal.js";
-import LoginForm from "./components/Login.js";
+import LoginForm from "./components/LoginForm.js";
 import FilterForm from './components/Filter.js';
 import Visit from "./components/Visit.js";
 import VisitTherapist from "./components/VisitTherapist.js";
