@@ -4,7 +4,7 @@ import {loginForm} from "./Login.js";
 import {visitDoctorForm} from "./Visit.js";
 
 export default class Modal extends Component {
-    constructor(classes, title, actionTitle, children) {
+    constructor(classes, title, children) {
         const elements = {
             parent: document.querySelector('#root'),
             self: document.createElement('div'),
@@ -21,7 +21,6 @@ export default class Modal extends Component {
 
         super(elements, classes);
         this.title = title;
-        this.actionTitle = actionTitle;
         this.children = children;
     }
 
@@ -39,30 +38,17 @@ export default class Modal extends Component {
             modalHeader,
             modalTitle,
             crossBtn,
-            modalBody,
-            modalFooter,
-            btnClose,
-            btnSubmit
+            modalBody
         } = this.elements;
 
         modalTitle.innerText = this.title;
-        btnClose.type = 'button';
-        btnClose.innerText = "Close";
-        btnSubmit.type = 'button';
-        btnSubmit.innerText = this.actionTitle;
 
-        const closeControls = [btnClose, crossBtn];
-        closeControls.forEach(control => control.addEventListener('click', () => this.closeModal()));
-        btnSubmit.addEventListener('click', async () => {
-            const response = await this.children.handleLogin();
-            if (response) this.closeModal();
-        });
+        crossBtn.addEventListener('click', () => this.closeModal())
 
         self.append(modalDialog);
         modalDialog.append(modalContent, modalBody);
-        modalContent.append(modalHeader, modalBody, modalFooter);
+        modalContent.append(modalHeader, modalBody);
         modalHeader.append(modalTitle, crossBtn);
-        modalFooter.append(btnClose, btnSubmit);
 
         if (!modalBody.hasChildNodes()) {
             modalBody.append(this.children.render());
@@ -72,8 +58,8 @@ export default class Modal extends Component {
     }
 }
 
-const authModal = new Modal(modalClasses, 'Authorization', 'Login', loginForm);
-const createVisit = new Modal(modalClasses, 'Create visit', 'Create', visitDoctorForm);
+const authModal = new Modal(modalClasses, 'Authorization', loginForm);
+const createVisit = new Modal(modalClasses, 'Create visit', visitDoctorForm);
 
 export {
     authModal,

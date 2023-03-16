@@ -17,7 +17,11 @@ export default class Home extends Component {
     }
 
     reRender() {
-        this.render();
+        const main = document.querySelector('.main');
+        const header = document.querySelector('.header');
+        [main, header].forEach(element => element.remove());
+
+        this.render()
     }
 
     render() {

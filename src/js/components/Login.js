@@ -1,9 +1,16 @@
 import Component from "./Component.js";
 import Input from "./Input.js";
 import API from "../utils/API.js";
-import {loginFormClasses, emailLoginConfig, passwordLoginConfig, homeClasses} from "../utils/configs.js";
+import {
+    loginFormClasses,
+    emailLoginConfig,
+    passwordLoginConfig,
+    homeClasses,
+    inputAuthSubmit
+} from "../utils/configs.js";
 import {emailRegExp} from "../utils/regExp.js";
 import Home from "../containers/Home.js";
+import {authModal} from "./Modal.js";
 
 export default class LoginForm extends Component {
     constructor(classes) {
@@ -15,7 +22,8 @@ export default class LoginForm extends Component {
             wrapperPassword: document.createElement('div'),
             errorBox: document.createElement('span'),
             inputEmail: new Input(emailLoginConfig).render(),
-            inputPassword: new Input(passwordLoginConfig).render()
+            inputPassword: new Input(passwordLoginConfig).render(),
+            authBtn: new Input(inputAuthSubmit).render()
         }
 
         super(elements, classes)
@@ -49,7 +57,8 @@ export default class LoginForm extends Component {
         }
     }
 
-    async handleLogin() {
+    async handleLogin(event) {
+        event.preventDefault();
         const {inputEmail, inputPassword, errorBox} = this.elements;
 
         const data = {
@@ -59,10 +68,10 @@ export default class LoginForm extends Component {
 
         try {
             if (this.checkCredits(data)) {
-                const response = await this.sendRequest(data);
+                await this.sendRequest(data);
                 this.clear(inputEmail, inputPassword, errorBox);
+                authModal.closeModal();
                 new Home(homeClasses).reRender();
-                return response;
             } else {
                 throw new Error('Invalid email or password less then 4 characters');
             }
@@ -81,7 +90,8 @@ export default class LoginForm extends Component {
             labelForEmail,
             labelForPassword,
             inputEmail,
-            inputPassword
+            inputPassword,
+            authBtn
         } = this.elements;
 
         labelForEmail.setAttribute('for', 'email');
@@ -91,7 +101,9 @@ export default class LoginForm extends Component {
 
         wrapperEmail.append(labelForEmail, inputEmail);
         wrapperPassword.append(labelForPassword, inputPassword);
-        self.append(wrapperEmail, wrapperPassword);
+        self.append(wrapperEmail, wrapperPassword, authBtn);
+
+        authBtn.addEventListener('click', event => this.handleLogin(event))
 
         return super.render()
     }

@@ -2,6 +2,10 @@ const emailLoginConfig = {
     classes: ['form-select'],
     attributes: [
         {
+            title: 'required',
+            value: ''
+        },
+        {
             title: 'id',
             value: 'email'
         },
@@ -19,6 +23,10 @@ const passwordLoginConfig = {
     classes: ['form-select'],
     attributes: [
         {
+            title: 'required',
+            value: ''
+        },
+        {
             title: 'id',
             value: 'password'
         },
@@ -34,10 +42,11 @@ const passwordLoginConfig = {
 }
 
 const visitFormClasses = {
-    self: '',
+    self: 'create-visit-form',
     wrapperName: 'mb-3',
     wrapperPurpose: 'mb-3',
     wrapperDescription: 'mb-4',
+    wrapperControl: 'd-flex gap-3',
     labelForName: 'form-label',
     labelForPurpose: 'form-label',
     labelForDescription: 'form-label',
@@ -45,7 +54,9 @@ const visitFormClasses = {
     visitPurpose: 'form-control',
     visitDescription: 'form-control',
     doctorVariety: 'form-select mb-4',
-    visitUrgency: 'form-select mb-3'
+    visitUrgency: 'form-select mb-4',
+    createVisitBtn: 'create-visit-form__btn btn btn-primary',
+    closeVisitBtn: 'create-visit-form__btn btn btn-secondary    '
 }
 
 const visitTherapistClasses = {
@@ -213,22 +224,62 @@ const modalClasses = {
     modalHeader: "modal-header",
     modalTitle: "modal-title fs-5",
     crossBtn: "btn-close",
-    modalBody: "modal-body",
-    modalFooter: "modal-footer",
-    btnClose: "btn btn-secondary",
-    btnSubmit: "btn btn-primary ",
+    modalBody: "modal-body"
 }
 
 const loginFormClasses = {
     parent: '',
-    self: '',
+    self: 'login',
     labelForEmail: 'form-label',
     labelForPassword: 'form-label',
     inputEmail: 'form-control mb-3',
     inputPassword: 'form-control mb-3',
     wrapperEmail: 'mb-3 position-relative',
-    wrapperPassword: 'mb-4 position-relative',
-    errorBox: 'invalid-feedback invalid-feedback-login'
+    wrapperPassword: 'login__wrapper-password position-relative',
+    errorBox: 'invalid-feedback invalid-feedback-login',
+    authBtn: 'btn btn-primary login__btn'
+}
+
+const inputAuthSubmit = {
+    classes: ['btn', 'btn-primary'],
+    attributes: [
+        {
+            title: 'value',
+            value: 'Login'
+        },
+        {
+            title: 'type',
+            value: 'submit',
+        }
+    ]
+}
+
+const inputCreateVisitSubmit = {
+    classes: ['btn', 'btn-primary'],
+    attributes: [
+        {
+            title: 'value',
+            value: 'Create visit'
+        },
+        {
+            title: 'type',
+            value: 'submit',
+        }
+    ]
+}
+
+const inputCloseVisitBtn = {
+    classes: ['btn', 'btn-danger'],
+    attributes: [
+        {
+            title: 'value',
+            value: 'Close visit'
+        },
+        {
+            title: 'type',
+            value: 'button',
+        }
+    ]
 }
 
 const patientNameConfig = {
@@ -406,6 +457,7 @@ export {
     emailLoginConfig,
     passwordLoginConfig,
     loginFormClasses,
+    inputAuthSubmit,
     visitFormClasses,
     homeClasses,
     headerClasses,
@@ -426,5 +478,7 @@ export {
     inputLastVisit,
     inputPatientPressure,
     inputPatientMassIndex,
-    inputPatientHeartDisease
+    inputPatientHeartDisease,
+    inputCreateVisitSubmit,
+    inputCloseVisitBtn
 }

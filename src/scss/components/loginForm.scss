@@ -1,0 +1,11 @@
+.login {
+    padding-bottom: 20px;
+    &__btn {
+        width: 100%;
+        max-width: 135px;
+    }
+
+    &__wrapper-password {
+        margin-bottom: 2.5rem;
+    }
+}
