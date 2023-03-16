@@ -1,6 +1,8 @@
 import Component from "../components/Component.js";
 import {homeClasses} from "../utils/configs.js";
 import {filterVisits} from "../components/Filter.js";
+import {headerClasses} from "../utils/configs.js";
+import Header from "../components/Header.js";
 
 export default class Home extends Component {
     constructor(classes) {
@@ -12,6 +14,10 @@ export default class Home extends Component {
         }
 
         super(elements, classes);
+    }
+
+    reRender() {
+        this.render();
     }
 
     render() {
@@ -26,6 +32,7 @@ export default class Home extends Component {
         }
 
         super.render();
+        new Header(headerClasses).render();
     }
 }
 

@@ -1,5 +1,4 @@
 import Component from "./Component.js";
-import {headerClasses} from "../utils/configs.js";
 import {authModal, createVisit} from "./Modal.js";
 
 export default class Header extends Component {
@@ -15,10 +14,6 @@ export default class Header extends Component {
         }
 
         super(elements, classes);
-    }
-
-    reRender() {
-        this.render();
     }
 
     render() {
@@ -47,5 +42,3 @@ export default class Header extends Component {
         super.render();
     }
 }
-
-new Header(headerClasses).render();
