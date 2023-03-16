@@ -34,7 +34,7 @@ export default class Header extends Component {
         logoBox.append(logo);
         nav.append(logoBox);
 
-        if (window.localStorage.getItem("token")) {
+        if (localStorage.getItem('token')) {
             nav.append(createVisitButton);
         } else {
             nav.append(loginButton);
@@ -44,5 +44,5 @@ export default class Header extends Component {
     }
 }
 
-const header = new Header(headerClasses);
+export const header = new Header(headerClasses);
 header.render()

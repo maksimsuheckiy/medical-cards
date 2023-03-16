@@ -1,5 +1,6 @@
 import Component from "../components/Component.js";
 import {homeClasses} from "../utils/configs.js";
+import {filterVisits} from "../components/Filter.js";
 
 export default class Home extends Component {
     constructor(classes) {
@@ -10,7 +11,7 @@ export default class Home extends Component {
             statusText: document.createElement('p')
         }
 
-        super(elements, classes)
+        super(elements, classes);
     }
 
     render() {
@@ -20,8 +21,12 @@ export default class Home extends Component {
         wrapper.append(statusText);
         self.append(wrapper);
 
+        if (localStorage.getItem('token')) {
+            wrapper.prepend(filterVisits.render());
+        }
+
         super.render();
     }
 }
 
-new Home(homeClasses).render()
+new Home(homeClasses).render();

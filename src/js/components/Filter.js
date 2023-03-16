@@ -11,7 +11,6 @@ import {
 export default class FilterForm extends Component {
     constructor(classes) {
         const elements = {
-            parent: document.querySelector('.main__inner'),
             self: document.createElement('form'),
             formTitle: document.createElement('h5'),
             inputFilter: new Input(inputFilterConfig).render(),
@@ -29,9 +28,8 @@ export default class FilterForm extends Component {
         formTitle.textContent = 'Visits filter:'
 
         self.append(formTitle, inputFilter, selectFilter, secondSelectFilter, submitForm);
-        super.render()
+        return super.render()
     }
 }
 
-const filterVisits = new FilterForm(filterClasses);
-filterVisits.render();
+export const filterVisits = new FilterForm(filterClasses);
