@@ -9,66 +9,27 @@ import {
 
 export default class VisitCardiologist extends Visit {
     constructor(classes) {
-        super();
-
+        super(classes);
         this.CardiologistElements = {
-            patientPressureWrapper: document.createElement('div'),
-            patientMassIndexWrapper: document.createElement('div'),
-            heartDiseaseWrapper: document.createElement('div'),
-            patientAgeWrapper: document.createElement('div'),
-            patientPressureLabel: document.createElement('label'),
-            patientMassIndexLabel: document.createElement('label'),
-            heartDiseaseLabel: document.createElement('label'),
-            labelForAge: document.createElement('label'),
+            doctorTitle: document.createElement('h6'),
             inputPatientPressure: new Input(inputPatientPressure).render(),
             inputPatientMassIndex: new Input(inputPatientMassIndex).render(),
             inputPatientHeartDisease: new Input(inputPatientHeartDisease).render(),
             inputPatientAge: new Input(inputPatientAge).render()
-
         }
-        this.classes = classes;
     }
 
     render() {
-        const {self, wrapperControl} = this.elements;
-        const {
-            patientPressureWrapper,
-            patientMassIndexWrapper,
-            heartDiseaseWrapper,
-            patientAgeWrapper,
-            patientPressureLabel,
-            patientMassIndexLabel,
-            heartDiseaseLabel,
-            labelForAge,
-            inputPatientPressure,
-            inputPatientMassIndex,
-            inputPatientHeartDisease,
-            inputPatientAge
-        } = this.CardiologistElements;
+        const {doctorTitle} = this.CardiologistElements;
 
-        patientPressureLabel.setAttribute('for', 'patientPressure');
-        patientMassIndexLabel.setAttribute('for', 'patientMassIndex');
-        heartDiseaseLabel.setAttribute('for', 'patientHeartDisease');
-        labelForAge.setAttribute('for', 'patientAge');
-
-        patientPressureWrapper.append(patientPressureLabel, inputPatientPressure);
-        patientMassIndexWrapper.append(patientMassIndexLabel, inputPatientMassIndex);
-        heartDiseaseWrapper.append(heartDiseaseLabel, inputPatientHeartDisease);
-        patientAgeWrapper.append(labelForAge, inputPatientAge);
+        doctorTitle.textContent = 'Additional fields for Cardiologist:'
+        doctorTitle.setAttribute('data-type', 'doctor-fields-title');
 
         for (let prop in this.CardiologistElements) {
             const element = this.CardiologistElements[prop];
             element.className = this.classes[prop];
         }
 
-        self.append(
-            patientPressureWrapper,
-            patientMassIndexWrapper,
-            heartDiseaseWrapper,
-            patientAgeWrapper,
-            wrapperControl
-        );
-
-        return super.render();
+        return super.render()
     }
 }

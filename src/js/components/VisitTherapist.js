@@ -4,29 +4,24 @@ import {inputPatientAge} from "../utils/configs.js";
 
 export default class VisitTherapist extends Visit {
     constructor(classes) {
-        super();
-
+        super(classes);
         this.TherapistElements = {
-            patientAgeWrapper: document.createElement('div'),
-            labelForAge: document.createElement('label'),
+            doctorTitle: document.createElement('h6'),
             inputPatientAge: new Input(inputPatientAge).render()
         }
-        this.classes = classes;
     }
 
     render() {
-        const {self, wrapperControl} = this.elements;
-        const {patientAgeWrapper, labelForAge, inputPatientAge} = this.TherapistElements;
+        const {doctorTitle} = this.TherapistElements;
+
+        doctorTitle.textContent = 'Additional field for Therapist:';
+        doctorTitle.setAttribute('data-type', 'doctor-fields-title');
 
         for (let prop in this.TherapistElements) {
             const element = this.TherapistElements[prop];
             element.className = this.classes[prop];
         }
 
-        labelForAge.setAttribute('for', 'patientAge');
-        patientAgeWrapper.append(labelForAge, inputPatientAge);
-
-        self.append(patientAgeWrapper, wrapperControl);
         return super.render();
     }
 }

@@ -1,21 +1,17 @@
 export default class Select {
-    constructor({classes, options, id}) {
+    constructor({classes, options, attributes}) {
         this.element = document.createElement('select');
         this.classes = classes;
         this.options = options;
-        this.id = id;
+        this.attributes = attributes;
     }
 
     render() {
-        if (this.id) this.element.setAttribute('id', this.id);
         this.element.classList.add(...this.classes);
+        this.attributes?.forEach(({title, value}) => this.element.setAttribute(title, value));
 
-        const options = this.options.map(({value, title, text}) => {
-            if (value === 'selected') {
-                return `<option ${value}>${title}</option>`
-            } else {
-                return `<option value="${value}">${text}</option>`
-            }
+        const options = this.options.map(({value, text}) => {
+            return `<option value="${value}">${text}</option>`
         }).join('');
 
         this.element.insertAdjacentHTML('afterbegin', `${options}`);

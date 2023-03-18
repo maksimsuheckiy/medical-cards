@@ -1,6 +1,7 @@
+import API from "../utils/API.js";
 import Select from "./Select.js";
 import Input from "./Input.js";
-import {createVisit} from "./Modal.js";
+import {createVisitModal} from "./Modal.js";
 import {
     visitFormClasses,
     inputVisitPurpose,
@@ -29,7 +30,7 @@ export default class Visit {
             createVisitBtn: new Input(inputCreateVisitSubmit).render(),
             closeVisitBtn: new Input(inputCloseModal).render(),
             doctorVariety: new Select(selectDoctorVariety).render(),
-            visitUrgency: new Select(selectUrgencyConfig).render()
+            visitUrgency: new Select(selectUrgencyConfig).render(),
         }
 
         this.classes = classes;
@@ -38,11 +39,43 @@ export default class Visit {
     chooseDoctorHandle(event) {
         const doctorType = event.target.value;
         if (doctorType !== selectDoctorVariety.options[0].title) {
-            createVisit.selectedDoctor(doctorType);
+            createVisitModal.selectedDoctor(doctorType, this.elements.self);
+        } else {
+            createVisitModal.removeDoctorForm(doctorType);
         }
     }
 
-    render(doctorTypeVisit) {
+    isValid() {
+        const fields = this.elements.self.elements;
+        return Array.from(fields).every(field => field.value.trim() !== '');
+    }
+
+    async createVisitHandle(event) {
+        event.preventDefault();
+        const formElements = this.elements.self.elements;
+        const api = new API(process.env.API_URL);
+        const headers = api.getHeaders(true);
+
+        const visitData = {
+            title: '',
+            patientName: '',
+            purpose: '',
+            description: '',
+            doctor: '',
+            visitUrgency: ''
+        }
+
+        if (this.isValid()) {
+            const response = await api.POST(headers, visitData);
+            const data = await response.json();
+
+            if (response.status > 200 || response.status < 299) {
+                createVisitModal.closeModal();
+            }
+        }
+    }
+
+    render() {
         const {
             self,
             wrapperName,
@@ -76,7 +109,8 @@ export default class Visit {
         self.append(wrapperName, wrapperPurpose, wrapperDescription, doctorVariety, visitUrgency, wrapperControl);
 
         doctorVariety.addEventListener('change', event => this.chooseDoctorHandle(event));
-        closeVisitBtn.addEventListener('click', () => createVisit.closeModal())
+        closeVisitBtn.addEventListener('click', () => createVisitModal.closeModal());
+        createVisitBtn.addEventListener('click', event => this.createVisitHandle(event));
 
         for (let prop in this.elements) {
             const element = this.elements[prop];
