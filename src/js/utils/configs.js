@@ -234,7 +234,8 @@ const inputPatientHeartDisease = {
 const homeClasses = {
     parent: "",
     self: "main container mb-5",
-    wrapper: "main__inner",
+    mainInner: "main__inner",
+    mainContent: 'main__content',
     statusText: "main__status-text"
 }
 
@@ -525,6 +526,20 @@ const selectFilterPriority = {
     ]
 }
 
+const cardClasses = {
+    id: '',
+    parent: 'main__content',
+    self: 'card',
+    cardBody: 'card-body card-body',
+    cardTitle: 'card-title',
+    cardSubtitle: 'card-subtitle mb-2 text-muted',
+    cardInfo: 'mb-4',
+    cardControlWrapper: 'd-flex gap-3',
+    deleteCardBtn: 'btn-close card-body__btn-close',
+    showMoreBtn: 'btn btn-link',
+    editCardBtn: 'btn btn-secondary'
+}
+
 export {
     emailLoginConfig,
     passwordLoginConfig,
@@ -552,5 +567,6 @@ export {
     inputPatientMassIndex,
     inputPatientHeartDisease,
     inputCreateVisitSubmit,
-    inputCloseModal
+    inputCloseModal,
+    cardClasses
 }
