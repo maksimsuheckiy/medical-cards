@@ -554,3 +554,14 @@ export {
     inputCreateVisitSubmit,
     inputCloseModal
 }
+
+export const footerClasses = {
+    parent: "",
+    self: "d-flex flex-wrap justify-content-between align-items-center p-2",
+    footerBox: "d-flex justify-content-between align-items-center mt-2",
+    footerInner: "d-flex justify-content-between align-items-center border-top container",
+    logoFooter: "logo-footer me-3",
+    linkFooter: "d-flex align-items-center text-decoration-none text-reset",
+    logoText: "fw-semibold",
+    footerText: "fw-semibold",
+}
