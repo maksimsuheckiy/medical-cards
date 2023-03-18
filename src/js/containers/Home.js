@@ -1,19 +1,32 @@
 import Component from "../components/Component.js";
-import {homeClasses} from "../utils/configs.js";
+import {cardClasses, headerClasses, homeClasses} from "../utils/configs.js";
 import {filterVisits} from "../components/Filter.js";
-import {headerClasses} from "../utils/configs.js";
 import Header from "../components/Header.js";
+import API from "../utils/API.js";
+import Card from "../components/Card.js";
 
 export default class Home extends Component {
     constructor(classes) {
         const elements = {
             parent: document.querySelector('#root'),
             self: document.createElement('main'),
-            wrapper: document.createElement('div'),
+            mainInner: document.createElement('div'),
+            mainContent: document.createElement('div'),
             statusText: document.createElement('p')
         }
 
         super(elements, classes);
+        this.token = localStorage.getItem('token');
+        this.visits = JSON.parse(localStorage.getItem('visits'));
+    }
+
+    async renderVisits() {
+        const api = new API(process.env.API_URL);
+        const headers = api.getHeaders(true);
+        const cards = await api.GET(headers);
+
+        localStorage.setItem('visits', JSON.stringify(cards));
+        cards.forEach(cardItem => new Card(cardClasses, cardItem).render());
     }
 
     reRender() {
@@ -25,14 +38,21 @@ export default class Home extends Component {
     }
 
     render() {
-        const {self, wrapper, statusText} = this.elements;
+        const {self, mainInner, mainContent, statusText} = this.elements;
 
         statusText.innerText = 'No items have been added';
-        wrapper.append(statusText);
-        self.append(wrapper);
+        mainInner.append(mainContent);
+        self.append(mainInner);
 
-        if (localStorage.getItem('token')) {
-            wrapper.prepend(filterVisits.render());
+        if (this.visits.length > 0 && this.token !== null) {
+            statusText.remove();
+        } else {
+            mainContent.append(statusText);
+        }
+
+        if (this.token !== null) {
+            mainInner.prepend(filterVisits.render());
+            this.renderVisits();
         }
 
         super.render();

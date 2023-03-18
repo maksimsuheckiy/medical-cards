@@ -44,11 +44,9 @@ export default class API {
     }
 
     async DELETE(headers, param) {
-        const response = await fetch(`${this.url}/${param}`, {
+        return await fetch(`${this.url}/${param}`, {
             method: 'DELETE',
             headers: headers,
-        });
-
-        return response.json()
+        })
     }
 }
