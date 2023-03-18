@@ -57,7 +57,7 @@ const visitFormClasses = {
     doctorVariety: 'form-select mb-4',
     visitUrgency: 'form-select mb-4',
     createVisitBtn: 'create-visit-form__btn btn btn-primary',
-    closeVisitBtn: 'create-visit-form__btn btn btn-secondary    '
+    closeVisitBtn: 'create-visit-form__btn btn btn-secondary'
 }
 
 const visitTherapistClasses = {
@@ -103,6 +103,10 @@ const inputPatientAge = {
         {
             title: 'data-type',
             value: 'additional-field'
+        },
+        {
+            title: 'name',
+            value: 'patientAge'
         }
     ]
 }
@@ -129,6 +133,10 @@ const inputLastVisit = {
         {
             title: 'data-type',
             value: 'additional-field'
+        },
+        {
+            title: 'name',
+            value: 'patientLastVisit'
         }
     ]
 }
@@ -155,6 +163,10 @@ const inputPatientPressure = {
         {
             title: 'data-type',
             value: 'additional-field'
+        },
+        {
+            title: 'name',
+            value: 'patientPressure'
         }
     ]
 }
@@ -181,6 +193,10 @@ const inputPatientMassIndex = {
         {
             title: 'data-type',
             value: 'additional-field'
+        },
+        {
+            title: 'name',
+            value: 'patientMassIndex'
         }
     ]
 }
@@ -207,6 +223,10 @@ const inputPatientHeartDisease = {
         {
             title: 'data-type',
             value: 'additional-field'
+        },
+        {
+            title: 'name',
+            value: 'patientHeartDisease'
         }
     ]
 }
@@ -305,7 +325,7 @@ const patientNameConfig = {
         },
         {
             title: 'id',
-            value: 'fullName'
+            value: 'patientName'
         },
         {
             title: 'placeholder',
@@ -314,6 +334,10 @@ const patientNameConfig = {
         {
             title: 'type',
             value: 'text'
+        },
+        {
+            title: 'name',
+            value: 'patientName'
         }
     ]
 }
@@ -336,6 +360,10 @@ const inputVisitPurpose = {
         {
             title: 'type',
             value: 'text'
+        },
+        {
+            title: 'name',
+            value: 'visitPurpose'
         }
     ]
 }
@@ -350,6 +378,10 @@ const inputVisitDescription = {
         {
             title: 'placeholder',
             value: 'Visit description'
+        },
+        {
+            title: 'name',
+            value: 'visitDescription'
         }
     ]
 }
@@ -382,6 +414,10 @@ const selectDoctorVariety = {
         {
             value: '',
             title: 'required'
+        },
+        {
+            value: 'doctorType',
+            title: 'name'
         }
     ]
 }
@@ -414,6 +450,10 @@ const selectUrgencyConfig = {
         {
             value: '',
             title: 'required'
+        },
+        {
+            value: 'visitUrgency',
+            title: 'name'
         }
     ]
 }

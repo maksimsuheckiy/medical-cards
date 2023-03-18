@@ -45,29 +45,32 @@ export default class Visit {
         }
     }
 
-    isValid() {
-        const fields = this.elements.self.elements;
-        return Array.from(fields).every(field => field.value.trim() !== '');
+    isValidData(visitData) {
+        return visitData.every(field => field.value.trim() !== '');
     }
 
     async createVisitHandle(event) {
         event.preventDefault();
-        const formElements = this.elements.self.elements;
+        const visitFields = Array.from(this.elements.self.elements);
         const api = new API(process.env.API_URL);
         const headers = api.getHeaders(true);
 
-        const visitData = {
-            title: '',
-            patientName: '',
-            purpose: '',
-            description: '',
-            doctor: '',
-            visitUrgency: ''
-        }
+        if (this.isValidData(visitFields)) {
+            const formData = visitFields.map(field => {
+                if (!field.classList.contains('btn')) {
+                    return {
+                        [field.name]: field.value
+                    }
+                }
+            });
 
-        if (this.isValid()) {
+            const doctorType = visitFields.find(field => field.name === 'doctorType');
+            const visitData = Object.assign({}, ...formData);
+            visitData.title = `Visit to a ${doctorType.value}`;
+
             const response = await api.POST(headers, visitData);
             const data = await response.json();
+            console.log(data);
 
             if (response.status > 200 || response.status < 299) {
                 createVisitModal.closeModal();
@@ -94,7 +97,7 @@ export default class Visit {
             closeVisitBtn
         } = this.elements;
 
-        labelForName.setAttribute('for', 'fullName');
+        labelForName.setAttribute('for', 'patientName');
         labelForPurpose.setAttribute('for', 'visitPurpose');
         labelForDescription.setAttribute('for', 'visitDescription');
 
