@@ -7,7 +7,7 @@ export default class Input {
 
     render() {
         this.element.classList.add(...this.classes);
-        this.attributes.forEach(({title, value}) => this.element.setAttribute(title, value));
+        this.attributes?.forEach(({title, value}) => this.element.setAttribute(title, value));
         return this.element
     }
 }

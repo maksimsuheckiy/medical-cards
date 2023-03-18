@@ -48,7 +48,7 @@ export default class LoginForm extends Component {
     async sendRequest(data) {
         const api = new API(process.env.API_URL);
         const headers = api.getHeaders(true);
-        const response = await api.POST(headers, 'login', data);
+        const response = await api.POST(headers, data, 'login');
         const dataResponse = await response.text();
 
         if (response.status < 200 || response.status > 299) {

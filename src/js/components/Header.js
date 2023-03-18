@@ -1,5 +1,5 @@
 import Component from "./Component.js";
-import {authModal, createVisit} from "./Modal.js";
+import {authModal, createVisitModal} from "./Modal.js";
 
 export default class Header extends Component {
     constructor(classes) {
@@ -27,7 +27,7 @@ export default class Header extends Component {
 
         logoBox.addEventListener('click', () => location.reload());
         loginButton.addEventListener('click', () => authModal.render());
-        createVisitButton.addEventListener('click', () => createVisit.render());
+        createVisitButton.addEventListener('click', () => createVisitModal.render());
 
         self.append(nav);
         logoBox.append(logo);

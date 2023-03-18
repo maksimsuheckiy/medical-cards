@@ -19,6 +19,7 @@ const emailLoginConfig = {
         }
     ]
 }
+
 const passwordLoginConfig = {
     classes: ['form-select'],
     attributes: [
@@ -61,32 +62,23 @@ const visitFormClasses = {
 
 const visitTherapistClasses = {
     ...visitFormClasses,
-    patientAgeWrapper: 'mb-3',
-    labelForAge: 'form-label mb-3',
-    inputPatientAge: 'form-control mb-3',
+    doctorTitle: 'mb-3',
+    inputPatientAge: 'form-control mb-4',
 }
 
 const visitCardiologistClasses = {
     ...visitFormClasses,
-    patientPressureWrapper: 'mb-3',
-    patientMassIndexWrapper: 'mb-3',
-    heartDiseaseWrapper: 'mb-3',
-    patientAgeWrapper: 'mb-3',
-    patientPressureLabel: 'form-label mb-3',
-    patientMassIndexLabel: 'form-label mb-3',
-    heartDiseaseLabel: 'form-label mb-3',
-    labelForAge: 'form-label mb-3',
+    doctorTitle: 'mb-3',
     inputPatientPressure: 'form-control mb-3',
     inputPatientMassIndex: 'form-control mb-3',
     inputPatientHeartDisease: 'form-control mb-3',
-    inputPatientAge: 'form-control mb-3',
+    inputPatientAge: 'form-control mb-4',
 }
 
 const visitDentistClasses = {
     ...visitFormClasses,
-    lastVisitWrapper: 'mb-3',
-    labelForLastVisit: 'form-label mb-3',
-    inputLastVisit: 'form-control mb-3'
+    doctorTitle: 'mb-3',
+    inputLastVisit: 'form-control mb-4'
 }
 
 const inputPatientAge = {
@@ -102,12 +94,16 @@ const inputPatientAge = {
         },
         {
             title: 'placeholder',
-            value: 'your age'
+            value: 'How old are you'
         },
         {
             title: 'type',
             value: 'text'
         },
+        {
+            title: 'data-type',
+            value: 'additional-field'
+        }
     ]
 }
 
@@ -130,6 +126,10 @@ const inputLastVisit = {
             title: 'type',
             value: 'text'
         },
+        {
+            title: 'data-type',
+            value: 'additional-field'
+        }
     ]
 }
 
@@ -152,6 +152,10 @@ const inputPatientPressure = {
             title: 'type',
             value: 'text'
         },
+        {
+            title: 'data-type',
+            value: 'additional-field'
+        }
     ]
 }
 
@@ -168,12 +172,16 @@ const inputPatientMassIndex = {
         },
         {
             title: 'placeholder',
-            value: 'Your normal pressure'
+            value: 'Body mass index'
         },
         {
             title: 'type',
             value: 'text'
         },
+        {
+            title: 'data-type',
+            value: 'additional-field'
+        }
     ]
 }
 
@@ -196,6 +204,10 @@ const inputPatientHeartDisease = {
             title: 'type',
             value: 'text'
         },
+        {
+            title: 'data-type',
+            value: 'additional-field'
+        }
     ]
 }
 
@@ -346,8 +358,8 @@ const selectDoctorVariety = {
     classes: ['form-select', 'select-doctor'],
     options: [
         {
-            value: 'selected',
-            title: 'Choose a doctor'
+            value: '',
+            text: 'Choose a doctor'
         },
         {
             value: 'cardiologist',
@@ -362,7 +374,48 @@ const selectDoctorVariety = {
             text: 'Therapist'
         }
     ],
-    id: 'doctorVariety'
+    attributes: [
+        {
+            value: 'doctorVariety',
+            title: 'id'
+        },
+        {
+            value: '',
+            title: 'required'
+        }
+    ]
+}
+
+const selectUrgencyConfig = {
+    classes: ['form-select', 'select-urgency'],
+    options: [
+        {
+            value: '',
+            text: 'Choose urgency'
+        },
+        {
+            value: 'normal',
+            text: 'Normal'
+        },
+        {
+            value: 'low',
+            text: 'Low'
+        },
+        {
+            value: 'urgent',
+            text: 'Urgent'
+        }
+    ],
+    attributes: [
+        {
+            value: 'visitUrgency',
+            title: 'id'
+        },
+        {
+            value: '',
+            title: 'required'
+        }
+    ]
 }
 
 const filterClasses = {
@@ -397,7 +450,7 @@ const selectFilterStatus = {
     options: [
         {
             value: 'selected',
-            title: 'Choose a status'
+            text: 'Choose a status'
         },
         {
             value: 'done',
@@ -406,7 +459,7 @@ const selectFilterStatus = {
         {
             value: 'open',
             text: 'Open'
-        },
+        }
     ]
 }
 
@@ -415,7 +468,7 @@ const selectFilterPriority = {
     options: [
         {
             value: 'selected',
-            title: 'Choose a priority'
+            text: 'Choose a priority'
         },
         {
             value: 'normal',
@@ -430,29 +483,6 @@ const selectFilterPriority = {
             text: 'Urgent'
         }
     ]
-}
-
-const selectUrgencyConfig = {
-    classes: ['form-select', 'select-urgency'],
-    options: [
-        {
-            value: 'selected',
-            title: 'Choose urgency'
-        },
-        {
-            value: 'normal',
-            text: 'Normal'
-        },
-        {
-            value: 'low',
-            text: 'Low'
-        },
-        {
-            value: 'urgent',
-            text: 'Urgent'
-        }
-    ],
-    id: 'visitUrgency'
 }
 
 export {

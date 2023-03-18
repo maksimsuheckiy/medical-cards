@@ -33,21 +33,61 @@ export default class Modal extends Component {
     }
 
     closeModal() {
-        const {errorBox} = this.children.elements;
+        const {errorBox, self} = this.children.elements;
         errorBox?.remove();
+        self?.reset();
+        this.removeDoctorForm();
         this.elements.self.remove();
     }
 
-    selectedDoctor(doctorType) {
+    removeDoctorForm() {
+        const doctorFieldsTitle = document.querySelector('[data-type="doctor-fields-title"]');
+        const additionalFields = document.querySelectorAll('[data-type="additional-field"]');
+        additionalFields.forEach(field => field.remove());
+        doctorFieldsTitle?.remove();
+    }
+
+    renderDoctorForm(doctorFields, childVisitElements, childVisitClasses, parentVisitForm) {
+        const visitControl = parentVisitForm.lastChild;
+
+        doctorFields.render();
+        this.removeDoctorForm();
+
+        for (let prop in childVisitElements) {
+            const element = childVisitElements[prop];
+            element.className = childVisitClasses[prop];
+            visitControl.before(element);
+        }
+    }
+
+    selectedDoctor(doctorType, parentVisitForm) {
         switch (doctorType) {
             case 'cardiologist':
                 const cardiologist = new VisitCardiologist(visitCardiologistClasses);
+                this.renderDoctorForm(
+                    cardiologist,
+                    cardiologist.CardiologistElements,
+                    cardiologist.classes,
+                    parentVisitForm
+                );
                 break
             case 'dentist':
                 const dentist = new VisitDentist(visitDentistClasses);
+                this.renderDoctorForm(
+                    dentist,
+                    dentist.DentistElements,
+                    dentist.classes,
+                    parentVisitForm
+                );
                 break
             case 'therapist':
                 const therapist = new VisitTherapist(visitTherapistClasses);
+                this.renderDoctorForm(
+                    therapist,
+                    therapist.TherapistElements,
+                    therapist.classes,
+                    parentVisitForm
+                );
                 break
         }
     }
@@ -81,9 +121,9 @@ export default class Modal extends Component {
 }
 
 const authModal = new Modal(modalClasses, 'Authorization', loginForm);
-const createVisit = new Modal(modalClasses, 'Create visit', visitDoctorForm);
+const createVisitModal = new Modal(modalClasses, 'Create visit', visitDoctorForm);
 
 export {
     authModal,
-    createVisit
+    createVisitModal
 }

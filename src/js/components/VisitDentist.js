@@ -4,29 +4,24 @@ import {inputLastVisit} from "../utils/configs.js";
 
 export default class VisitDentist extends Visit {
     constructor(classes) {
-        super();
-
+        super(classes);
         this.DentistElements = {
-            lastVisitWrapper: document.createElement('div'),
-            labelForLastVisit: document.createElement('label'),
+            doctorTitle: document.createElement('h6'),
             inputLastVisit: new Input(inputLastVisit).render()
         }
-        this.classes = classes;
     }
 
     render() {
-        const {self, wrapperControl} = this.elements;
-        const {lastVisitWrapper, labelForLastVisit, inputLastVisit} = this.DentistElements;
+        const {doctorTitle} = this.DentistElements;
+
+        doctorTitle.textContent = 'Additional field for Dentist:';
+        doctorTitle.setAttribute('data-type', 'doctor-fields-title');
 
         for (let prop in this.DentistElements) {
             const element = this.DentistElements[prop];
             element.className = this.classes[prop];
         }
 
-        labelForLastVisit.setAttribute('for', 'patientLastVisit');
-        lastVisitWrapper.append(labelForLastVisit, inputLastVisit);
-
-        self.append(lastVisitWrapper, wrapperControl);
         return super.render();
     }
 }

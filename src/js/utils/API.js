@@ -7,12 +7,12 @@ export default class API {
         API.token = token;
     };
 
-    getHeaders(isAuth) {
-        return isAuth ? {
-            'Content-Type': 'application/json',
-        } : {
+    getHeaders(withAuth) {
+        return withAuth ? {
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${API.token || localStorage.token}`
+        } : {
+            'Content-Type': 'application/json'
         }
     }
 
@@ -25,7 +25,7 @@ export default class API {
         return res.json();
     }
 
-    async POST(headers, param, data) {
+    async POST(headers, data, param) {
         return await fetch(`${this.url}/${param ? param : ''}`, {
             method: 'POST',
             headers: headers,
