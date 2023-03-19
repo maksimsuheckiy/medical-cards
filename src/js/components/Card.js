@@ -50,7 +50,6 @@ export default class Card extends Component {
         } = this.elements;
 
         const {id, title, patientName, doctorType} = this.cardData;
-        console.log(this.cardData);
 
         cardTitle.textContent = title;
         cardSubtitle.textContent = `Patient name: ${patientName}`;
