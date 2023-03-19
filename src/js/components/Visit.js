@@ -77,7 +77,7 @@ export default class Visit {
                 new Card(cardClasses, responseData).render();
 
                 const visits = JSON.parse(localStorage.getItem('visits'));
-                visits.push(singleVisit);
+                visits.push(responseData);
                 localStorage.setItem('visits', JSON.stringify(visits));
 
                 new Home(homeClasses).reRender();
