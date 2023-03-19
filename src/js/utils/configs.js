@@ -98,7 +98,7 @@ const inputPatientAge = {
         },
         {
             title: 'type',
-            value: 'text'
+            value: 'number'
         },
         {
             title: 'data-type',
@@ -128,7 +128,7 @@ const inputLastVisit = {
         },
         {
             title: 'type',
-            value: 'text'
+            value: 'date'
         },
         {
             title: 'data-type',
@@ -188,7 +188,7 @@ const inputPatientMassIndex = {
         },
         {
             title: 'type',
-            value: 'text'
+            value: 'number'
         },
         {
             title: 'data-type',
@@ -242,7 +242,7 @@ const homeClasses = {
 const headerClasses = {
     parent: "",
     self: "header bg-primary",
-    nav: "navbar navbar-light d-flex justify-content-between container",
+    nav: "navbar navbar-light d-flex justify-content-between align-items-center container",
     logoBox: "navbar-brand header__logo-box",
     logo: "header__logo",
     loginButton: "btn btn-outline-light",
@@ -536,8 +536,8 @@ const cardClasses = {
     cardInfo: 'mb-4',
     cardControlWrapper: 'd-flex gap-3',
     deleteCardBtn: 'btn-close card-body__btn-close',
-    showMoreBtn: 'btn btn-link',
-    editCardBtn: 'btn btn-secondary'
+    showMoreBtn: 'btn btn-secondary',
+    editCardBtn: 'btn btn-primary'
 }
 
 export {
