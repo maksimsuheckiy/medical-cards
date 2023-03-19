@@ -24,7 +24,7 @@ export default class FilterForm extends Component {
 
     render() {
         const {self, formTitle, inputFilter, selectFilter, secondSelectFilter, submitForm} = this.elements;
-        submitForm.textContent = "Submit";
+        submitForm.textContent = "Apply";
         formTitle.textContent = 'Visits filter:'
 
         self.append(formTitle, inputFilter, selectFilter, secondSelectFilter, submitForm);

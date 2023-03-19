@@ -14,7 +14,7 @@ export default class VisitDentist extends Visit {
     render() {
         const {doctorTitle} = this.DentistElements;
 
-        doctorTitle.textContent = 'Additional field for Dentist:';
+        doctorTitle.textContent = 'Additional field for Dentist (last visit):';
         doctorTitle.setAttribute('data-type', 'doctor-fields-title');
 
         for (let prop in this.DentistElements) {

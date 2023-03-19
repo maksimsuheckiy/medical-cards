@@ -2,8 +2,11 @@ import Component from "./Component.js";
 import API from "../utils/API.js";
 import Home from "../containers/Home.js";
 import {homeClasses} from "../utils/configs.js";
+import {spaceCapitalLetters} from "../utils/regExp.js";
 
 export default class Card extends Component {
+    visibleMoreInfo;
+
     constructor(classes, cardData) {
         const elements = {
             parent: document.querySelector('.main__content') || cardData.parent,
@@ -36,6 +39,56 @@ export default class Card extends Component {
         }
     }
 
+    renderMoreInfo(fields) {
+        const additionalInfoList = document.createElement('ul');
+        additionalInfoList.classList.add(...['pt-3', 'mb-4', 'border-top', 'border-bottom']);
+
+        for (const field in fields) {
+            const additionalInfoItem = document.createElement('li');
+            const additionalInfoTitle = document.createElement('p');
+            const additionalInfoValue = document.createElement('p');
+
+            const fieldTitle = field.replace(spaceCapitalLetters, ' $1').trim();
+            const titleArr = fieldTitle.split(' ');
+
+            const title = titleArr.map((word, index) => {
+                if (index === 0) {
+                    return word.charAt(0).toUpperCase() + word.slice(1)
+                } else {
+                    return word.toLowerCase()
+                }
+            }).join(' ');
+
+            additionalInfoTitle.classList.add(...['fw-bolder', 'mb-1']);
+            additionalInfoTitle.textContent = `${title}: `;
+
+            additionalInfoValue.classList.add('mb-2')
+            additionalInfoValue.textContent = fields[field];
+
+            additionalInfoItem.classList.add('mb-3');
+
+            additionalInfoItem.append(additionalInfoTitle, additionalInfoValue);
+            additionalInfoList.append(additionalInfoItem);
+        }
+
+        return additionalInfoList
+    }
+
+    toggleMoreInfo(wrapper, btn) {
+        const {id, title, doctorType, patientName, parent, ...rest} = this.cardData;
+
+        if (this.visibleMoreInfo) {
+            btn.textContent = 'Show details';
+            wrapper.previousElementSibling.remove();
+            this.visibleMoreInfo = false;
+        } else {
+            btn.textContent = 'Hide details';
+            const list = this.renderMoreInfo(rest);
+            wrapper.before(list);
+            this.visibleMoreInfo = true;
+        }
+    }
+
     render() {
         const {
             self,
@@ -56,9 +109,10 @@ export default class Card extends Component {
         cardInfo.textContent = `Doctor: ${doctorType}`;
 
         editCardBtn.textContent = 'Edit visit';
-        showMoreBtn.textContent = 'Show more info';
+        showMoreBtn.textContent = 'Show details';
 
         deleteCardBtn.addEventListener('click', () => this.removeVisit(id));
+        showMoreBtn.addEventListener('click', () => this.toggleMoreInfo(cardControlWrapper, showMoreBtn));
 
         cardControlWrapper.append(editCardBtn, deleteCardBtn, showMoreBtn);
         cardBody.append(cardTitle, cardSubtitle, cardInfo, cardControlWrapper);
