@@ -104,8 +104,14 @@ export default class Modal extends Component {
         } = this.elements;
 
         modalTitle.innerText = this.title;
+        self.setAttribute('id', "modal");
 
-        crossBtn.addEventListener('click', () => this.closeModal())
+        crossBtn.addEventListener('click', () => this.closeModal());
+        self.addEventListener('click', (event) => {
+            if (event.target.id === "modal") {
+                this.elements.self.remove();
+            }
+        })
 
         self.append(modalDialog);
         modalDialog.append(modalContent, modalBody);

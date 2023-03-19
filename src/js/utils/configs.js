@@ -540,6 +540,17 @@ const cardClasses = {
     editCardBtn: 'btn btn-primary'
 }
 
+const footerClasses = {
+    parent: "",
+    self: "d-flex flex-wrap justify-content-between align-items-center border-top",
+    footerBox: "d-flex justify-content-between align-items-center",
+    footerInner: "d-flex justify-content-between align-items-center container pt-3 pb-3",
+    logoFooter: "logo-footer me-3",
+    linkFooter: "d-flex align-items-center text-decoration-none text-reset",
+    logoText: "fw-semibold",
+    footerText: "",
+}
+
 export {
     emailLoginConfig,
     passwordLoginConfig,
@@ -568,16 +579,6 @@ export {
     inputPatientHeartDisease,
     inputCreateVisitSubmit,
     inputCloseModal,
-    cardClasses
-}
-
-export const footerClasses = {
-    parent: "",
-    self: "d-flex flex-wrap justify-content-between align-items-center p-2",
-    footerBox: "d-flex justify-content-between align-items-center mt-2",
-    footerInner: "d-flex justify-content-between align-items-center border-top container",
-    logoFooter: "logo-footer me-3",
-    linkFooter: "d-flex align-items-center text-decoration-none text-reset",
-    logoText: "fw-semibold",
-    footerText: "fw-semibold",
+    cardClasses,
+    footerClasses
 }

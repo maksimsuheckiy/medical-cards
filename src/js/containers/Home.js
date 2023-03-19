@@ -17,7 +17,7 @@ export default class Home extends Component {
 
         super(elements, classes);
         this.token = localStorage.getItem('token');
-        this.visits = JSON.parse(localStorage.getItem('visits'));
+        this.visits = JSON.parse(localStorage.getItem('visits')) || [];
     }
 
     async renderVisits() {
