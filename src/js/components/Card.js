@@ -6,7 +6,7 @@ import {homeClasses} from "../utils/configs.js";
 export default class Card extends Component {
     constructor(classes, cardData) {
         const elements = {
-            parent: document.querySelector('.main__content'),
+            parent: document.querySelector('.main__content') || cardData.parent,
             self: document.createElement('div'),
             cardBody: document.createElement('div'),
             cardTitle: document.createElement('h5'),
@@ -50,6 +50,7 @@ export default class Card extends Component {
         } = this.elements;
 
         const {id, title, patientName, doctorType} = this.cardData;
+        console.log(this.cardData);
 
         cardTitle.textContent = title;
         cardSubtitle.textContent = `Patient name: ${patientName}`;

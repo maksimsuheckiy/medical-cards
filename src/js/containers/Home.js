@@ -21,12 +21,19 @@ export default class Home extends Component {
     }
 
     async renderVisits() {
-        const api = new API(process.env.API_URL);
-        const headers = api.getHeaders(true);
-        const cards = await api.GET(headers);
+        if (this.visits.length === 0) {
+            const api = new API(process.env.API_URL);
+            const headers = api.getHeaders(true);
+            const cards = await api.GET(headers);
 
-        localStorage.setItem('visits', JSON.stringify(cards));
-        cards.forEach(cardItem => new Card(cardClasses, cardItem).render());
+            localStorage.setItem('visits', JSON.stringify(cards));
+            cards.forEach(cardItem => new Card(cardClasses, cardItem).render());
+        } else {
+            this.visits.forEach(visit => {
+                console.log(visit);
+                new Card(cardClasses, {...visit, parent: this.elements.mainContent}).render()
+            });
+        }
     }
 
     reRender() {
