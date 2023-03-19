@@ -98,7 +98,7 @@ const inputPatientAge = {
         },
         {
             title: 'type',
-            value: 'text'
+            value: 'number'
         },
         {
             title: 'data-type',
@@ -128,7 +128,7 @@ const inputLastVisit = {
         },
         {
             title: 'type',
-            value: 'text'
+            value: 'date'
         },
         {
             title: 'data-type',
@@ -188,7 +188,7 @@ const inputPatientMassIndex = {
         },
         {
             title: 'type',
-            value: 'text'
+            value: 'number'
         },
         {
             title: 'data-type',
@@ -234,14 +234,15 @@ const inputPatientHeartDisease = {
 const homeClasses = {
     parent: "",
     self: "main container mb-5",
-    wrapper: "main__inner",
+    mainInner: "main__inner",
+    mainContent: 'main__content',
     statusText: "main__status-text"
 }
 
 const headerClasses = {
     parent: "",
     self: "header bg-primary",
-    nav: "navbar navbar-light d-flex justify-content-between container",
+    nav: "navbar navbar-light d-flex justify-content-between align-items-center container",
     logoBox: "navbar-brand header__logo-box",
     logo: "header__logo",
     loginButton: "btn btn-outline-light",
@@ -525,6 +526,20 @@ const selectFilterPriority = {
     ]
 }
 
+const cardClasses = {
+    id: '',
+    parent: 'main__content',
+    self: 'card',
+    cardBody: 'card-body card-body',
+    cardTitle: 'card-title',
+    cardSubtitle: 'card-subtitle mb-2 text-muted',
+    cardInfo: 'mb-4',
+    cardControlWrapper: 'd-flex gap-3',
+    deleteCardBtn: 'btn-close card-body__btn-close',
+    showMoreBtn: 'btn btn-secondary',
+    editCardBtn: 'btn btn-primary'
+}
+
 export {
     emailLoginConfig,
     passwordLoginConfig,
@@ -552,7 +567,8 @@ export {
     inputPatientMassIndex,
     inputPatientHeartDisease,
     inputCreateVisitSubmit,
-    inputCloseModal
+    inputCloseModal,
+    cardClasses
 }
 
 export const footerClasses = {

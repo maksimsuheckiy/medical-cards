@@ -1,0 +1,12 @@
+.card {
+    min-width: 255px;
+}
+
+.card-body {
+    position: relative;
+    &__btn-close {
+        position: absolute;
+        top: 17px;
+        right: 17px;
+    }
+}

@@ -10,8 +10,10 @@ import {
     selectDoctorVariety,
     selectUrgencyConfig,
     inputCreateVisitSubmit,
-    inputCloseModal
+    inputCloseModal, cardClasses, homeClasses
 } from "../utils/configs.js";
+import Card from "./Card.js";
+import Home from "../containers/Home.js";
 
 export default class Visit {
     constructor(classes) {
@@ -65,14 +67,20 @@ export default class Visit {
             });
 
             const doctorType = visitFields.find(field => field.name === 'doctorType');
-            const visitData = Object.assign({}, ...formData);
-            visitData.title = `Visit to a ${doctorType.value}`;
+            const singleVisit = Object.assign({}, ...formData);
+            singleVisit.title = `Visit to a ${doctorType.value}`;
 
-            const response = await api.POST(headers, visitData);
-            const data = await response.json();
-            console.log(data);
+            const response = await api.POST(headers, singleVisit);
 
-            if (response.status > 200 || response.status < 299) {
+            if (response.status >= 200 && response.status <= 299) {
+                const responseData = await response.json();
+                new Card(cardClasses, responseData).render();
+
+                const visits = JSON.parse(localStorage.getItem('visits'));
+                visits.push(responseData);
+                localStorage.setItem('visits', JSON.stringify(visits));
+
+                new Home(homeClasses).reRender();
                 createVisitModal.closeModal();
             }
         }

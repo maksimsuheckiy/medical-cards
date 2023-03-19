@@ -14,7 +14,7 @@ export default class VisitTherapist extends Visit {
     render() {
         const {doctorTitle} = this.TherapistElements;
 
-        doctorTitle.textContent = 'Additional field for Therapist:';
+        doctorTitle.textContent = 'Additional field for Therapist (your age):';
         doctorTitle.setAttribute('data-type', 'doctor-fields-title');
 
         for (let prop in this.TherapistElements) {
