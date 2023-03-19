@@ -59,7 +59,7 @@ export default class Card extends Component {
                 }
             }).join(' ');
 
-            additionalInfoTitle.classList.add(...['fw-bolder', 'mb-1']);
+            additionalInfoTitle.classList.add(...['fst-italic', 'mb-1']);
             additionalInfoTitle.textContent = `${title}: `;
 
             additionalInfoValue.classList.add('mb-2')
