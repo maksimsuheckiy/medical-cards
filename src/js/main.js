@@ -28,4 +28,5 @@ import Visit from "./components/Visit.js";
 import VisitTherapist from "./components/VisitTherapist.js";
 import VisitCardiologist from "./components/VisitCardiologist.js";
 import VisitDentist from "./components/VisitDentist.js";
+import Footer from "./components/Footer.js";
 import Card from "./components/Card.js";
