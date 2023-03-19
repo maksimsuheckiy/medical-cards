@@ -30,7 +30,6 @@ export default class Home extends Component {
             cards.forEach(cardItem => new Card(cardClasses, cardItem).render());
         } else {
             this.visits.forEach(visit => {
-                console.log(visit);
                 new Card(cardClasses, {...visit, parent: this.elements.mainContent}).render()
             });
         }
