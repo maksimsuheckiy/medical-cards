@@ -463,8 +463,8 @@ const filterClasses = {
     self: 'filter bg-info',
     formTitle: 'mb-4 text-white',
     inputFilter: 'form-control mb-4',
-    selectFilter: 'form-select mb-4',
-    secondSelectFilter: 'form-select mb-4',
+    doctorSelect: 'form-select mb-4',
+    urgencySelect: 'form-select mb-4',
     submitForm: 'btn btn-primary '
 }
 
@@ -491,15 +491,19 @@ const selectFilterStatus = {
     options: [
         {
             value: 'selected',
-            text: 'Choose a status'
+            text: 'Choose a doctor'
         },
         {
-            value: 'done',
-            text: 'Done'
+            value: 'therapist',
+            text: 'Therapist'
         },
         {
-            value: 'open',
-            text: 'Open'
+            value: 'cardiologist',
+            text: 'Cardiologist'
+        },
+        {
+            value: 'dentist',
+            text: 'Dentist'
         }
     ]
 }
@@ -509,7 +513,7 @@ const selectFilterPriority = {
     options: [
         {
             value: 'selected',
-            text: 'Choose a priority'
+            text: 'Choose the urgency'
         },
         {
             value: 'normal',
