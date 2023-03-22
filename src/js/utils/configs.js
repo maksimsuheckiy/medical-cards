@@ -486,7 +486,7 @@ const inputFilterConfig = {
     ]
 }
 
-const selectFilterStatus = {
+const selectFilterDoctor = {
     classes: ['form-select'],
     options: [
         {
@@ -571,7 +571,7 @@ export {
     selectDoctorVariety,
     selectUrgencyConfig,
     inputFilterConfig,
-    selectFilterStatus,
+    selectFilterDoctor,
     selectFilterPriority,
     visitTherapistClasses,
     visitCardiologistClasses,
