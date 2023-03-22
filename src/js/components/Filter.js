@@ -3,13 +3,12 @@ import Input from "./Input.js";
 import Select from './Select.js'
 import {
     cardClasses,
-    filterClasses, homeClasses,
+    filterClasses,
     inputFilterConfig,
     selectFilterPriority,
-    selectFilterStatus
+    selectFilterDoctor
 } from "../utils/configs.js";
 import Card from "./Card.js";
-import Home from "../containers/Home.js";
 
 export default class FilterForm extends Component {
     filter = {
@@ -25,7 +24,7 @@ export default class FilterForm extends Component {
             self: document.createElement('form'),
             formTitle: document.createElement('h5'),
             inputFilter: new Input(inputFilterConfig).render(),
-            doctorSelect: new Select(selectFilterStatus).render(),
+            doctorSelect: new Select(selectFilterDoctor).render(),
             urgencySelect: new Select(selectFilterPriority).render(),
             submitForm: document.createElement('button')
         }
@@ -44,6 +43,7 @@ export default class FilterForm extends Component {
     resetForm(event) {
         event.preventDefault();
         this.clearVisits();
+        this.visits.forEach(visit => new Card(cardClasses, visit).render());
         this.elements.self.reset();
     }
 
@@ -55,11 +55,10 @@ export default class FilterForm extends Component {
         } else {
             return true
         }
-
     }
 
     filterByDoctor(item) {
-        if (this.filter.doctor !== '') {
+        if (this.filter.doctor !== '' && this.filter.doctor !== 'selected') {
             return item.doctorType === this.filter.doctor
         } else {
             return true
@@ -67,7 +66,7 @@ export default class FilterForm extends Component {
     }
 
     filterByUrgency(item) {
-        if (this.filter.urgency !== '') {
+        if (this.filter.urgency !== '' && this.filter.urgency !== 'selected') {
             return item.visitUrgency === this.filter.urgency
         } else {
             return true
