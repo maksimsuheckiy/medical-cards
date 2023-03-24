@@ -1,7 +1,9 @@
 import Component from "./Component.js";
+import Modal from "./Modal.js";
+import Visit from "./Visit.js";
 import API from "../utils/API.js";
 import Home from "../containers/Home.js";
-import {homeClasses} from "../utils/configs.js";
+import {homeClasses, modalClasses, visitFormClasses} from "../utils/configs.js";
 import {spaceCapitalLetters} from "../utils/regExp.js";
 
 export default class Card extends Component {
@@ -26,7 +28,7 @@ export default class Card extends Component {
     }
 
     async removeVisit(id) {
-        const api =  new API(process.env.API_URL);
+        const api = new API(process.env.API_URL);
         const headers = api.getHeaders(true);
         const response = await api.DELETE(headers, id);
 
@@ -80,13 +82,32 @@ export default class Card extends Component {
         if (this.visibleMoreInfo) {
             btn.textContent = 'Show details';
             wrapper.previousElementSibling.remove();
-            this.visibleMoreInfo = false;
         } else {
             btn.textContent = 'Hide details';
             const list = this.renderMoreInfo(rest);
             wrapper.before(list);
-            this.visibleMoreInfo = true;
         }
+
+        this.visibleMoreInfo = !this.visibleMoreInfo;
+    }
+
+    editVisitHandler() {
+        const {
+            id,
+            title,
+            doctorType,
+            parent,
+            patientName,
+            visitPurpose,
+            visitDescription,
+            visitUrgency,
+            ...rest
+        } = this.cardData;
+
+        const editVisitForm = new Visit(visitFormClasses, 'edit', this.cardData);
+        const editDoctorForm = new Modal(modalClasses, 'Edit visit', editVisitForm);
+        editDoctorForm.render();
+        editDoctorForm.selectedDoctor(doctorType, editVisitForm.elements.self, rest);
     }
 
     render() {
@@ -113,6 +134,7 @@ export default class Card extends Component {
 
         deleteCardBtn.addEventListener('click', () => this.removeVisit(id));
         showMoreBtn.addEventListener('click', () => this.toggleMoreInfo(cardControlWrapper, showMoreBtn));
+        editCardBtn.addEventListener('click', () => this.editVisitHandler());
 
         cardControlWrapper.append(editCardBtn, deleteCardBtn, showMoreBtn);
         cardBody.append(cardTitle, cardSubtitle, cardInfo, cardControlWrapper);

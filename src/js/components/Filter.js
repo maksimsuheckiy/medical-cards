@@ -12,7 +12,8 @@ import Card from "./Card.js";
 
 export default class FilterForm extends Component {
     filter = {
-        name: '',
+        title: '',
+        description: '',
         doctor: '',
         urgency: ''
     }
@@ -47,11 +48,11 @@ export default class FilterForm extends Component {
         this.elements.self.reset();
     }
 
-    filterByName(item) {
-        if (this.filter.name !== '') {
-            return item.patientName
-                .toLowerCase()
-                .includes(this.filter.name.toLowerCase())
+    filterByTitle(item) {
+        if (this.filter.title !== '' || this.filter.description !== '') {
+            return (item.title && item.visitDescription)
+                    .toLowerCase()
+                    .includes(this.filter.title.toLowerCase())
         } else {
             return true
         }
@@ -89,7 +90,7 @@ export default class FilterForm extends Component {
         const allCards = this.visits;
         this.filteredCards = allCards
             .filter(item => {
-                if (this.filterByName(item) === true) return item
+                if (this.filterByTitle(item) === true) return item
             })
 
             .filter(item => {
@@ -110,7 +111,8 @@ export default class FilterForm extends Component {
         formTitle.textContent = 'Visits filter:'
 
         inputFilter.addEventListener('input', event => {
-            this.filter.name = event.target.value
+            this.filter.title = event.target.value;
+            this.filter.description = event.target.value
             this.filterData()
         });
 
