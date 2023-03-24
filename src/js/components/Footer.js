@@ -4,7 +4,7 @@ import {footerClasses} from "../utils/configs.js";
 export default class Footer {
     constructor(classes) {
         this.classes = classes;
-        this.elements = {   
+        this.elements = {
             parent: document.querySelector("#root"),
             self: document.createElement("footer"),
             footerInner: document.createElement("div"),
@@ -30,7 +30,6 @@ export default class Footer {
             element.className = this.classes[prop];
         }
 
-        // logoFooter.setAttribute("logo-footer");
         parent.append(self);
         self.append(footerInner);
         footerInner.append(footerBox, footerText);
