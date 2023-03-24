@@ -11,7 +11,7 @@ import {
     inputCloseModal
 } from "../utils/configs.js";
 import {emailRegExp} from "../utils/regExp.js";
-import {authModal} from "./Modal.js";
+import Modal from "./Modal.js";
 
 export default class LoginForm extends Component {
     constructor(classes) {
@@ -73,7 +73,7 @@ export default class LoginForm extends Component {
             if (this.checkCredits(data)) {
                 await this.sendRequest(data);
                 this.clear(inputEmail, inputPassword, errorBox);
-                authModal.closeModal();
+                Modal.closeModal();
                 new Home(homeClasses).reRender();
             } else {
                 throw new Error('Invalid email or password less then 4 characters');
@@ -109,7 +109,8 @@ export default class LoginForm extends Component {
         wrapperControl.append(authBtn, closeBtn);
         self.append(wrapperEmail, wrapperPassword, wrapperControl);
 
-        authBtn.addEventListener('click', event => this.handleLogin(event))
+        authBtn.addEventListener('click', event => this.handleLogin(event));
+        closeBtn.addEventListener('click', () => Modal.closeModal());
 
         return super.render()
     }

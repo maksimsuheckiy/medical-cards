@@ -56,7 +56,7 @@ const visitFormClasses = {
     visitDescription: 'form-control',
     doctorVariety: 'form-select mb-4',
     visitUrgency: 'form-select mb-4',
-    createVisitBtn: 'create-visit-form__btn btn btn-primary',
+    submitBtn: 'create-visit-form__btn btn btn-primary',
     closeVisitBtn: 'create-visit-form__btn btn btn-secondary'
 }
 
@@ -295,6 +295,20 @@ const inputCreateVisitSubmit = {
         {
             title: 'value',
             value: 'Create visit'
+        },
+        {
+            title: 'type',
+            value: 'submit',
+        }
+    ]
+}
+
+const inputEditVisitSubmit = {
+    classes: ['btn', 'btn-primary'],
+    attributes: [
+        {
+            title: 'value',
+            value: 'Edit visit'
         },
         {
             title: 'type',
@@ -582,6 +596,7 @@ export {
     inputPatientMassIndex,
     inputPatientHeartDisease,
     inputCreateVisitSubmit,
+    inputEditVisitSubmit,
     inputCloseModal,
     cardClasses,
     footerClasses

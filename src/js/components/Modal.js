@@ -1,15 +1,10 @@
 import Component from "./Component.js";
 import {loginForm} from "./LoginForm.js";
-import {visitDoctorForm} from "./Visit.js";
+import {createVisitDoctorForm} from "./Visit.js";
 import VisitCardiologist from "./VisitCardiologist.js";
 import VisitDentist from "./VisitDentist.js";
 import VisitTherapist from "./VisitTherapist.js";
-import {
-    modalClasses,
-    visitCardiologistClasses,
-    visitTherapistClasses,
-    visitDentistClasses
-} from "../utils/configs.js";
+import {modalClasses, visitCardiologistClasses, visitDentistClasses, visitTherapistClasses} from "../utils/configs.js";
 
 export default class Modal extends Component {
     constructor(classes, title, children) {
@@ -32,14 +27,6 @@ export default class Modal extends Component {
         this.children = children;
     }
 
-    closeModal() {
-        const {errorBox, self} = this.children.elements;
-        errorBox?.remove();
-        self?.reset();
-        this.removeDoctorForm();
-        this.elements.self.remove();
-    }
-
     removeDoctorForm() {
         const doctorFieldsTitle = document.querySelector('[data-type="doctor-fields-title"]');
         const additionalFields = document.querySelectorAll('[data-type="additional-field"]');
@@ -47,7 +34,20 @@ export default class Modal extends Component {
         doctorFieldsTitle?.remove();
     }
 
-    renderDoctorForm(doctorFields, childVisitElements, childVisitClasses, parentVisitForm) {
+    static closeModal() {
+        const modal = document.querySelector('#modal');
+        const doctorFieldsTitle = modal.querySelector('[data-type="doctor-fields-title"]');
+        const additionalFields = modal.querySelectorAll('[data-type="additional-field"]');
+        const innerForm = modal?.querySelector('form');
+        const errors = modal?.querySelectorAll('.invalid-feedback');
+        errors?.forEach(error => error.remove());
+        innerForm?.reset();
+        modal?.remove();
+        additionalFields.forEach(field => field.remove());
+        doctorFieldsTitle?.remove();
+    }
+
+    renderDoctorForm(doctorFields, childVisitElements, childVisitClasses, parentVisitForm, initialData) {
         const visitControl = parentVisitForm.lastChild;
 
         doctorFields.render();
@@ -55,12 +55,17 @@ export default class Modal extends Component {
 
         for (let prop in childVisitElements) {
             const element = childVisitElements[prop];
+
+            if (initialData) {
+                element.value = initialData[element.name];
+            }
+
             element.className = childVisitClasses[prop];
             visitControl.before(element);
         }
     }
 
-    selectedDoctor(doctorType, parentVisitForm) {
+    selectedDoctor(doctorType, parentVisitForm, initialData) {
         switch (doctorType) {
             case 'cardiologist':
                 const cardiologist = new VisitCardiologist(visitCardiologistClasses);
@@ -68,7 +73,8 @@ export default class Modal extends Component {
                     cardiologist,
                     cardiologist.CardiologistElements,
                     cardiologist.classes,
-                    parentVisitForm
+                    parentVisitForm,
+                    initialData
                 );
                 break
             case 'dentist':
@@ -77,7 +83,8 @@ export default class Modal extends Component {
                     dentist,
                     dentist.DentistElements,
                     dentist.classes,
-                    parentVisitForm
+                    parentVisitForm,
+                    initialData
                 );
                 break
             case 'therapist':
@@ -86,7 +93,8 @@ export default class Modal extends Component {
                     therapist,
                     therapist.TherapistElements,
                     therapist.classes,
-                    parentVisitForm
+                    parentVisitForm,
+                    initialData
                 );
                 break
         }
@@ -106,9 +114,12 @@ export default class Modal extends Component {
         modalTitle.innerText = this.title;
         self.setAttribute('id', "modal");
 
-        crossBtn.addEventListener('click', () => this.closeModal());
+        crossBtn.addEventListener('click', () => Modal.closeModal());
+
         self.addEventListener('click', (event) => {
             if (event.target.id === "modal") {
+                const errors = document.querySelectorAll('.invalid-feedback');
+                errors?.forEach(error => error.remove());
                 this.elements.self.remove();
             }
         })
@@ -127,7 +138,7 @@ export default class Modal extends Component {
 }
 
 const authModal = new Modal(modalClasses, 'Authorization', loginForm);
-const createVisitModal = new Modal(modalClasses, 'Create visit', visitDoctorForm);
+const createVisitModal = new Modal(modalClasses, 'Create visit', createVisitDoctorForm);
 
 export {
     authModal,

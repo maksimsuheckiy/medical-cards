@@ -34,13 +34,11 @@ export default class API {
     }
 
     async PUT(headers, param, data) {
-        const response = await fetch(`${this.url}/${param}`, {
+        return await fetch(`${this.url}/${param}`, {
             method: 'PUT',
             headers: headers,
             body: JSON.stringify(data)
         });
-
-        return response.json();
     }
 
     async DELETE(headers, param) {
