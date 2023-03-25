@@ -1,18 +1,36 @@
-# Bootstrap 5 + WebPack 5 = Boilerplate
+# List of used technologies:
 
-This is a professional front-end template for building web apps and sites faster, without having to create the basic
-setup on your own, every time you start a new project.
+* HTML5
+* SCSS
+* Javascript
+* NPM
+* Node.js
+* Webpack
+* Git
+* Bootstrap
 
-The template is based on the [Bootstrap Framework](http://getbootstrap.com/) in version 5 and
-uses [Webpack](https://webpack.js.org/) in version 5 as a flexible and modern module bundler. All common features for
-front-end projects (like SCSS compilation, minifying of Assets, etc.) are included out of the box.
+# Project contributors:
 
-In development the [DevServer](https://webpack.js.org/configuration/dev-server/) plugin is used, to serve the page with
-hot reloading enabled, so that you can see all changes in your code immediately. When you're done, just run the build
-command and upload all files from the `public` folder.
+* Maksym Sukhetckiy
+* Roman Stepanenko
+* Vadim Bobrovnyk
 
-In addition to the basic front-end project setup, I added some cool features like a configurable image resizing command
-to make generating responsive images a breeze.
+# What tasks were completed:
+
+* Maksym Sukhetckiy:
+  * Creating a repository;
+  * Setup dev environment (webpack, node env, etc);
+  * Doing a daily every day;
+  * Javascript: сreated API, Component, Card, Input, Select, LoginForm, VisitCardiologist, Filter (part-time), Visit (part time) components and containers;
+  * Styles: card, errors, loginForm, visitForm, modal (part-time)
+* Roman Stepanenko
+  * Created index.html
+  * Javascript: Modal, Filter (part-time), Home (part time), Visit (part-time), VisitDentist, configs
+  * Styles: filter, modal, home
+* Vadim Bobrovnyk
+  * Created .gitignore file
+  * Javascript: Header, Footer, Visit (part-time), Home (part time), VisitTherapist, configs
+  * Styles: header, footer, home (part-time)
 
 ## Table of Contents
 

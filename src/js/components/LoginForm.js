@@ -2,6 +2,8 @@ import Component from "./Component.js";
 import Input from "./Input.js";
 import API from "../utils/API.js";
 import Home from "../containers/Home.js";
+import Modal from "./Modal.js";
+import {emailRegExp} from "../utils/regExp.js";
 import {
     loginFormClasses,
     emailLoginConfig,
@@ -10,8 +12,6 @@ import {
     inputAuthSubmit,
     inputCloseModal
 } from "../utils/configs.js";
-import {emailRegExp} from "../utils/regExp.js";
-import Modal from "./Modal.js";
 
 export default class LoginForm extends Component {
     constructor(classes) {
