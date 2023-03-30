@@ -1,37 +1,3 @@
-# List of used technologies:
-
-* HTML5
-* SCSS
-* Javascript
-* NPM
-* Node.js
-* Webpack
-* Git
-* Bootstrap
-
-# Project contributors:
-
-* Maksym Sukhetckiy
-* Roman Stepanenko
-* Vadim Bobrovnyk
-
-# What tasks were completed:
-
-* Maksym Sukhetckiy:
-  * Creating a repository;
-  * Setup dev environment (webpack, node env, etc);
-  * Doing a daily every day;
-  * Javascript: сreated API, Component, Card, Input, Select, LoginForm, VisitCardiologist, Filter (part-time), Visit (part time) components and containers;
-  * Styles: card, errors, loginForm, visitForm, modal (part-time)
-* Roman Stepanenko
-  * Created index.html
-  * Javascript: Modal, Filter (part-time), Home (part time), Visit (part-time), VisitDentist, configs
-  * Styles: filter, modal, home
-* Vadim Bobrovnyk
-  * Created .gitignore file
-  * Javascript: Header, Footer, Visit (part-time), Home (part time), VisitTherapist, configs
-  * Styles: header, footer, home (part-time)
-
 ## Table of Contents
 
 1. [Requirements](#1-requirements)
